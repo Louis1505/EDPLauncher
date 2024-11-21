@@ -16,7 +16,7 @@
     <ROW Property="ARPNOMODIFY" MultiBuildValue="DefaultBuild:1"/>
     <ROW Property="ARPNOREPAIR" Value="1"/>
     <ROW Property="ARPPRODUCTICON" Value="favicon.exe" Type="8"/>
-    <ROW Property="ARPURLINFOABOUT" Value="http://portal.fwbh.de/"/>
+    <ROW Property="ARPURLINFOABOUT" Value="http://portal.fwbh.de"/>
     <ROW Property="Manufacturer" Value="Feuerwehr Stadt Bad Harzburg"/>
     <ROW Property="ProductCode" Value="1033:{95DBBBFC-D1F2-405B-B765-C2FE5C9EE63E} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
