@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDPLauncher", "EDPLauncher\EDPLauncher.csproj", "{C6869D0F-411C-4561-B2EE-E59E6594E356}"
+EndProject
+Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "EDPLauncherSetup", "EDPLauncherSetup\EDPLauncherSetup.aiproj", "{6B152C35-3D68-4AEF-B8A9-056FA51C0778}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DefaultBuild|Any CPU = DefaultBuild|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6869D0F-411C-4561-B2EE-E59E6594E356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6869D0F-411C-4561-B2EE-E59E6594E356}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6869D0F-411C-4561-B2EE-E59E6594E356}.DefaultBuild|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6869D0F-411C-4561-B2EE-E59E6594E356}.DefaultBuild|Any CPU.Build.0 = Debug|Any CPU
+		{C6869D0F-411C-4561-B2EE-E59E6594E356}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6869D0F-411C-4561-B2EE-E59E6594E356}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B152C35-3D68-4AEF-B8A9-056FA51C0778}.Debug|Any CPU.ActiveCfg = DefaultBuild
+		{6B152C35-3D68-4AEF-B8A9-056FA51C0778}.Debug|Any CPU.Build.0 = DefaultBuild
+		{6B152C35-3D68-4AEF-B8A9-056FA51C0778}.DefaultBuild|Any CPU.ActiveCfg = DefaultBuild
+		{6B152C35-3D68-4AEF-B8A9-056FA51C0778}.DefaultBuild|Any CPU.Build.0 = DefaultBuild
+		{6B152C35-3D68-4AEF-B8A9-056FA51C0778}.Release|Any CPU.ActiveCfg = DefaultBuild
+		{6B152C35-3D68-4AEF-B8A9-056FA51C0778}.Release|Any CPU.Build.0 = DefaultBuild
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54FF82E2-2416-47E7-8DD6-00838C109967}
+	EndGlobalSection
+EndGlobal
