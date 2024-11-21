@@ -94,10 +94,11 @@
             // label_user
             // 
             this.label_user.AutoSize = true;
+            this.label_user.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label_user.ForeColor = System.Drawing.Color.White;
-            this.label_user.Location = new System.Drawing.Point(222, 106);
+            this.label_user.Location = new System.Drawing.Point(37, 108);
             this.label_user.Name = "label_user";
-            this.label_user.Size = new System.Drawing.Size(29, 15);
+            this.label_user.Size = new System.Drawing.Size(33, 17);
             this.label_user.TabIndex = 7;
             this.label_user.Text = "user";
             // 

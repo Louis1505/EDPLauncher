@@ -19,13 +19,31 @@ namespace EDPLauncher
             button_test.ForeColor = ColorTranslator.FromHtml("#ffffff");
             button_not.BackColor = ColorTranslator.FromHtml("#535353");
             button_not.ForeColor = ColorTranslator.FromHtml("#ffffff");
-            using (var context = new PrincipalContext(ContextType.Domain))
+            if (IsInDomain())
             {
-                UserPrincipal user = UserPrincipal.Current;
-                string email = user.EmailAddress;
+                using (var context = new PrincipalContext(ContextType.Domain))
+                {
+                    UserPrincipal user = UserPrincipal.Current;
+                    string email = user.EmailAddress;
+                }
+                username = FormatUsername(email);
+                label_user.Text = "Es meldet sich an: " + username;
+                button_not.Enabled = true;
+                button_prod.Enabled = true;
+                button_test.Enabled = true;
             }
-            username = FormatUsername(email);
-            label_user.Text = "Es meldet sich an: " + username;
+            else
+            {
+                label_user.Text = "Benutzer nicht in Domäne - keine Anmeldung möglich!";
+                button_not.Enabled = false;
+                button_prod.Enabled = false;
+                button_test.Enabled = false;
+                label_user.ForeColor = Color.Red;
+                label_user.Font = new Font(label_user.Font, FontStyle.Bold);
+
+            }
+
+
         }
         
         string ausgabe = @"C:\EDP\ELP\ELP.ini";
@@ -34,6 +52,20 @@ namespace EDPLauncher
         string email;
         string username;
 
+        static bool IsInDomain()
+        {
+            try
+            {
+                using (var context = new PrincipalContext(ContextType.Domain))
+                {
+                    return true; // Wenn kein Fehler auftritt, ist der PC in einer Domäne
+                }
+            }
+            catch (Exception)
+            {
+                return false; // Fehler bedeutet, dass der PC nicht in einer Domäne ist
+            }
+        }
     static string FormatUsername(string email)
         {
             // E-Mail Adresse in den Teil vor @ trennen
@@ -135,7 +167,7 @@ namespace EDPLauncher
                 writer.Write(File.ReadAllText(standard));
             }
 
-            this.Close();
+            Environment.Exit(0);
         }
 
         private void button_test_Click_1(object sender, EventArgs e)
