@@ -4,6 +4,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 using System.Security.Principal;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.DirectoryServices.AccountManagement;
+using Outlook = Microsoft.Office.Interop.Outlook;
 
 namespace EDPLauncher
 {
@@ -19,72 +20,49 @@ namespace EDPLauncher
             button_test.ForeColor = ColorTranslator.FromHtml("#ffffff");
             button_not.BackColor = ColorTranslator.FromHtml("#535353");
             button_not.ForeColor = ColorTranslator.FromHtml("#ffffff");
-            if (IsInDomain())
-            {
-                using (var context = new PrincipalContext(ContextType.Domain))
-                {
-                    UserPrincipal user = UserPrincipal.Current;
-                    string email = user.EmailAddress;
-                }
-                username = FormatUsername(email);
-                label_user.Text = "Es meldet sich an: " + username;
-                button_not.Enabled = true;
-                button_prod.Enabled = true;
-                button_test.Enabled = true;
-            }
-            else
-            {
-                label_user.Text = "Benutzer nicht in Domäne - keine Anmeldung möglich!";
-                button_not.Enabled = false;
-                button_prod.Enabled = false;
-                button_test.Enabled = false;
-                label_user.ForeColor = Color.Red;
-                label_user.Font = new Font(label_user.Font, FontStyle.Bold);
 
-            }
-
+            string fullName = Environment.UserName;
+            username=FormatUsername(fullName);
+            label_user.Text = "Es wird eingeloggt: "+username;
 
         }
         
         string ausgabe = @"C:\EDP\ELP\ELP.ini";
         string standard = @"C:\EDP\EDPLauncher\Konfiguration\ELP_Backup.ini";
         string edpExe = @"C:\EDP\ELP\ELP.exe";
-        string email;
         string username;
+        string fullName;
 
-        static bool IsInDomain()
+        
+    static string FormatUsername(string fullName)
         {
-            try
+            if (string.IsNullOrWhiteSpace(fullName))
             {
-                using (var context = new PrincipalContext(ContextType.Domain))
+                throw new ArgumentException("Der Name darf nicht leer sein.");
+            }
+
+            // Den ersten Großbuchstaben nach dem Vornamen finden
+            int splitIndex = -1;
+            for (int i = 1; i < fullName.Length; i++)
+            {
+                if (char.IsUpper(fullName[i]))
                 {
-                    return true; // Wenn kein Fehler auftritt, ist der PC in einer Domäne
+                    splitIndex = i;
+                    break;
                 }
             }
-            catch (Exception)
-            {
-                return false; // Fehler bedeutet, dass der PC nicht in einer Domäne ist
-            }
-        }
-    static string FormatUsername(string email)
-        {
-            // E-Mail Adresse in den Teil vor @ trennen
-            string localPart = email.Split('@')[0];
 
-            // Benutzername in Vorname und Nachname aufteilen
-            string[] parts = localPart.Split('.');
-            if (parts.Length != 2)
+            if (splitIndex == -1)
             {
-                throw new ArgumentException("Der Benutzername muss im Format 'vorname.nachname' sein.");
+                throw new ArgumentException("Der Name muss Vorname und Nachname enthalten.");
             }
 
-            string firstName = parts[0];
-            string lastName = parts[1];
+            // Vorname und Nachname trennen
+            string firstName = fullName.Substring(0, splitIndex);
+            string lastName = fullName.Substring(splitIndex);
 
             // Erster Buchstabe des Vornamens + Nachname
-            string newUsername = firstName[0] + lastName;
-
-            return newUsername;
+            return char.ToLower(firstName[0]) + lastName.ToLower();
         }
 
         private void button_prod_Click(object sender, EventArgs e)
