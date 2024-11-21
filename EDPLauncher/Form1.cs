@@ -1,6 +1,9 @@
 using System.Diagnostics;
 using System.Drawing.Drawing2D;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
+using System.Security.Principal;
+using Microsoft.VisualBasic.ApplicationServices;
+using System.DirectoryServices.AccountManagement;
 
 namespace EDPLauncher
 {
@@ -16,47 +19,64 @@ namespace EDPLauncher
             button_test.ForeColor = ColorTranslator.FromHtml("#ffffff");
             button_not.BackColor = ColorTranslator.FromHtml("#535353");
             button_not.ForeColor = ColorTranslator.FromHtml("#ffffff");
+            using (var context = new PrincipalContext(ContextType.Domain))
+            {
+                UserPrincipal user = UserPrincipal.Current;
+                string email = user.EmailAddress;
+            }
+            username = FormatUsername(email);
+            label_user.Text = "Es meldet sich an: " + username;
         }
-        string username = Environment.UserName;
+        
         string ausgabe = @"C:\EDP\ELP\ELP.ini";
-        string standard = @"C:\EDP\ELP\ELP_Backup.ini";
+        string standard = @"C:\EDP\EDPLauncher\Konfiguration\ELP_Backup.ini";
         string edpExe = @"C:\EDP\ELP\ELP.exe";
+        string email;
+        string username;
+
+    static string FormatUsername(string email)
+        {
+            // E-Mail Adresse in den Teil vor @ trennen
+            string localPart = email.Split('@')[0];
+
+            // Benutzername in Vorname und Nachname aufteilen
+            string[] parts = localPart.Split('.');
+            if (parts.Length != 2)
+            {
+                throw new ArgumentException("Der Benutzername muss im Format 'vorname.nachname' sein.");
+            }
+
+            string firstName = parts[0];
+            string lastName = parts[1];
+
+            // Erster Buchstabe des Vornamens + Nachname
+            string newUsername = firstName[0] + lastName;
+
+            return newUsername;
+        }
 
         private void button_prod_Click(object sender, EventArgs e)
-        {
-            // Pfade dynamisch definieren
-            string user_ini = $@"C:\Users\{username}\OneDrive - Feuerwehr Stadt Bad Harzburg\Dokumente\EDP\login.txt";
+        {     
             string system_ini = @"C:\EDP\EDPLauncher\Konfiguration\prod.ini";
-            //Aufruf Ini Erstellen
-            create_ini(user_ini, system_ini);
+            create_ini(system_ini);
         }
         private void button_not_Click(object sender, EventArgs e)
         {
-            // Pfade dynamisch definieren
-            string user_ini = $@"C:\Users\{username}\OneDrive - Feuerwehr Stadt Bad Harzburg\Dokumente\EDP\login.txt";
             string system_ini = @"C:\EDP\EDPLauncher\Konfiguration\not.ini";
-            //Aufruf Ini Erstellen
-            create_ini(user_ini, system_ini);
+            create_ini(system_ini);
         }
         private void button_test_Click(object sender, EventArgs e)
         {
-            // Pfade dynamisch definieren
-            string user_ini = $@"C:\Users\{username}\OneDrive - Feuerwehr Stadt Bad Harzburg\Dokumente\EDP\login.txt";
             string system_ini = @"C:\EDP\EDPLauncher\Konfiguration\test.ini";
-            //Aufruf Ini Erstellen
-            create_ini(user_ini, system_ini);
+            create_ini(system_ini);
         }
 
-        void create_ini(string user_ini, string system_ini)
+        void create_ini(string system_ini)
         {
             try
             {
                 // Überprüfen, ob die Dateien existieren
-                if (!File.Exists(user_ini))
-                {
-                    Console.WriteLine($"Fehler: Datei \"{user_ini}\" nicht gefunden.");
-                    return;
-                }
+                
 
                 if (!File.Exists(system_ini))
                 {
@@ -68,8 +88,9 @@ namespace EDPLauncher
                 Console.WriteLine("Inhalte werden zusammengeführt...");
                 using (StreamWriter writer = new StreamWriter(ausgabe))
                 {
-                    writer.Write(File.ReadAllText(user_ini));
-                    writer.WriteLine();
+                    writer.WriteLine("[Autologon]");
+                    writer.WriteLine("Benutzer="+username);
+                    writer.WriteLine("Passwort=7b3XshGnPqhCxg89EiCE");
                     writer.Write(File.ReadAllText(system_ini));
                 }
 

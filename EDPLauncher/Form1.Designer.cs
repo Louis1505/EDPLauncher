@@ -33,6 +33,7 @@
             this.button_not = new System.Windows.Forms.Button();
             this.button_test = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label_user = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,6 +91,16 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
+            // label_user
+            // 
+            this.label_user.AutoSize = true;
+            this.label_user.ForeColor = System.Drawing.Color.White;
+            this.label_user.Location = new System.Drawing.Point(222, 106);
+            this.label_user.Name = "label_user";
+            this.label_user.Size = new System.Drawing.Size(29, 15);
+            this.label_user.TabIndex = 7;
+            this.label_user.Text = "user";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -97,6 +108,7 @@
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(488, 241);
+            this.Controls.Add(this.label_user);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button_test);
             this.Controls.Add(this.button_not);
@@ -108,6 +120,7 @@
             this.Text = "EDP Launcher";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -117,5 +130,6 @@
         private Button button_not;
         private Button button_test;
         private PictureBox pictureBox1;
+        private Label label_user;
     }
 }
