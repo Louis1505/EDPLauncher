@@ -1,3 +1,0 @@
-[Autologon]
-Benutzer=mmustermann
-Passwort=password
