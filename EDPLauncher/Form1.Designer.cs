@@ -34,7 +34,6 @@
             button_test = new Button();
             pictureBox1 = new PictureBox();
             label_user = new Label();
-            checkBox1 = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -103,16 +102,6 @@
             label_user.TabIndex = 7;
             label_user.Text = "user";
             // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(223, 116);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(83, 19);
-            checkBox1.TabIndex = 8;
-            checkBox1.Text = "checkBox1";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -120,7 +109,6 @@
             BackColor = SystemColors.AppWorkspace;
             BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(488, 241);
-            Controls.Add(checkBox1);
             Controls.Add(label_user);
             Controls.Add(pictureBox1);
             Controls.Add(button_test);
@@ -143,6 +131,5 @@
         private Button button_test;
         private PictureBox pictureBox1;
         private Label label_user;
-        private CheckBox checkBox1;
     }
 }

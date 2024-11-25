@@ -1,1 +1,14 @@
-1.0.3
+;aiu;
+
+[Update]
+Name = EDPLauncher
+ProductVersion = 2.0.0.0
+URL = https://github.com/Louis1505/EDPLauncher/tree/master/EDPLauncher/Updates/UpdateExe
+Size = 36951852
+SHA256 = E6949AD462EEDBE2B564BDF3D4EF40A130BDF2D26D74F2D680DF2238735F34AD
+MD5 = 82fe3a8235f213cafb65c8c01ecd5c99
+ServerFileName = EDPLauncherSetup.exe
+Flags = Critical
+RegistryKey = HKUD\Software\Feuerwehr Stadt Bad Harzburg\EDPLauncher\Version
+Version = 2.0.0.0
+Description = Test
