@@ -12,17 +12,23 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
         run: |
           ISSUE_NODE_ID=${{ github.event.issue.node_id }}
-          
+          PROJECT_ID="PVT_kwHOBLqZMc4As--D"
+
           # GraphQL-Query zur Ermittlung der Item-ID
-          QUERY='{"query":"query($issueId: ID!) { node(id: $issueId) { ... on Issue { projectV2Items(first: 100) { nodes { id project { id } } } } } }","variables":{"issueId":"'$ISSUE_NODE_ID'"}}'
-          
+          QUERY='{"query":"query GetProjectItemId($projectId: ID!, $contentId: ID!) { node(id: $projectId) { ... on ProjectV2 { items(first: 100) { nodes { id content { ... on Issue { id } } } } } }}","variables":{"projectId":"'$PROJECT_ID'","contentId":"'$ISSUE_NODE_ID'"}}'
+
           # Führe die Anfrage aus und speichere die Item-ID
           ITEM_ID=$(curl -s -X POST -H "Authorization: Bearer $GITHUB_TOKEN" \
             -H "Content-Type: application/json" \
-            --data "$QUERY" https://api.github.com/graphql | jq -r '.data.node.projectV2Items.nodes[0].id')
-          
+            --data "$QUERY" https://api.github.com/graphql | jq -r '.data.node.items.nodes[] | select(.content.id == "'$ISSUE_NODE_ID'") | .id')
+
+          if [ -z "$ITEM_ID" ]; then
+            echo "Item ID not found for issue $ISSUE_NODE_ID in project $PROJECT_ID."
+            exit 1
+          fi
+
           echo "ITEM_ID=$ITEM_ID" >> $GITHUB_ENV
-          
+
       - name: Update Project Field
         env:
           GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
