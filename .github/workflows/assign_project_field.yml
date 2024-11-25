@@ -27,5 +27,5 @@ jobs:
           # Update the project field using the GraphQL API
           curl -X POST -H "Authorization: Bearer $GITHUB_TOKEN" \
             -H "Content-Type: application/json" \
-            --data '{"query":"mutation { updateProjectV2ItemFieldValue(input: { projectId: \"11792259\", itemId: \"$ISSUE_NODE_ID\", fieldId: \"150598072\", value: { singleSelectOptionId: \"$OPTION_ID\" }}) { projectV2Item { id }}}"}' \
+            --data '{"query":"mutation { updateProjectV2ItemFieldValue(input: { projectId: \"PVT_kwHOBLqZMc4As--D"\", itemId: \"$ISSUE_NODE_ID\", fieldId: \"150598072\", value: { singleSelectOptionId: \"$OPTION_ID\" }}) { projectV2Item { id }}}"}' \
             https://api.github.com/graphql
