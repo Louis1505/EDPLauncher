@@ -22,6 +22,14 @@
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EDPLauncher\EDPLauncher.csproj">
+      <Name>EDPLauncher</Name>
+      <Project>{c6869d0f-411c-4561-b2ee-e59e6594e356}</Project>
+      <Private>True</Private>
+      <OutputsToImport>PublishOutput#FolderProfile#bin\Release\net6.0-windows\publish\###FileSystem######</OutputsToImport>
+    </ProjectReference>
+  </ItemGroup>
   <Target Name="Build">
     <Error Text="This project requires Advanced Installer tool. Please download it from https://www.advancedinstaller.com/download.html" />
   </Target>
