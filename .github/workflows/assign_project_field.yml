@@ -12,7 +12,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
         run: |
           ISSUE_NODE_ID=${{ github.event.issue.node_id }}
-          PROJECT_ID="PVT_kwHOBLqZMc4As--D"
+          PROJECT_ID=PVT_kwHOBLqZMc4As--D
 
           # GraphQL-Query zur Ermittlung der Item-ID
           QUERY='{"query":"query GetProjectItemId($projectId: ID!, $contentId: ID!) { node(id: $projectId) { ... on ProjectV2 { items(first: 100) { nodes { id content { ... on Issue { id } } } } } }}","variables":{"projectId":"'$PROJECT_ID'","contentId":"'$ISSUE_NODE_ID'"}}'
