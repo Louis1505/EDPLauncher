@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Updates\" />
     <Folder Include="Resources\" />
   </ItemGroup>
 
