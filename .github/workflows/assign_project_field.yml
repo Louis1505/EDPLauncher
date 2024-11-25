@@ -16,7 +16,7 @@ jobs:
           ISSUE_NODE_ID=${{ github.event.issue.node_id }}
 
           # Map labels to project field option IDs
-          if [ "$LABEL" = ""Severity 1 - Bug"" ]; then
+          if [ "$LABEL" = "Severity 1 - Bug" ]; then
             OPTION_ID="269d0976"
           elif [ "$LABEL" = "p2" ]; then
             OPTION_ID="<OPTION_ID_FOR_P2>"
