@@ -9,8 +9,6 @@
     <ROW Section="Update #1" Key="ProductVersion" Value="2.0.1.0" ValueLocId="-"/>
     <ROW Section="Update #1" Key="URL" Value="https://github.com/Louis1505/EDPLauncher/blob/master/EDPLauncher/Updates/UpdateExe/EDPLauncherSetup.exe" ValueLocId="-"/>
     <ROW Section="Update #1" Key="Size" Value="UpdateExe\EDPLauncherSetup.exe" ValueLocId="-"/>
-    <ROW Section="Update #1" Key="SHA256" Value="UpdateExe\EDPLauncherSetup.exe" ValueLocId="-"/>
-    <ROW Section="Update #1" Key="MD5" Value="UpdateExe\EDPLauncherSetup.exe" ValueLocId="-"/>
     <ROW Section="Update #1" Key="ServerFileName" Value="EDPLauncherSetup.exe" ValueLocId="-"/>
     <ROW Section="Update #1" Key="Flags" Value="Critical" ValueLocId="-"/>
     <ROW Section="Update #1" Key="RegistryKey" Value="HKUD\Software\Feuerwehr Stadt Bad Harzburg\EDPLauncher\Version" ValueLocId="-"/>
