@@ -1,4 +1,4 @@
-name: Assign Project Field Based on Label
+name: Update Project Field Based on Label
 on:
   issues:
     types:
@@ -8,15 +8,24 @@ jobs:
   update_project_field:
     runs-on: ubuntu-latest
     steps:
-      - name: Set Single-Select Field in Project
+      - name: Update Project Field
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           LABEL=${{ github.event.label.name }}
-          if [[ "$LABEL" =~ ^p[1-5]$ ]]; then
-            curl -X POST -H "Authorization: Bearer $WORKFLOW_TOKEN" \
-              -H "Content-Type: application/json" \
-              -d '{
-                "query": "mutation { updateProjectNextItemField(input: { projectId: \"<PROJECT_ID>\", itemId: \"${{ github.event.issue.node_id }}\", fieldId: \"<FIELD_ID>\", value: \"$LABEL\" }) { clientMutationId } }"
-              }' https://api.github.com/graphql
+          ISSUE_NODE_ID=${{ github.event.issue.node_id }}
+
+          # Map labels to project field option IDs
+          if [ "$LABEL" = "p1" ]; then
+            OPTION_ID="<OPTION_ID_FOR_P1>"
+          elif [ "$LABEL" = "p2" ]; then
+            OPTION_ID="<OPTION_ID_FOR_P2>"
+          else
+            exit 0
           fi
+
+          # Update the project field using the GraphQL API
+          curl -X POST -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Content-Type: application/json" \
+            --data '{"query":"mutation { updateProjectV2ItemFieldValue(input: { projectId: \"<PROJECT_ID>\", itemId: \"$ISSUE_NODE_ID\", fieldId: \"<FIELD_ID>\", value: { singleSelectOptionId: \"$OPTION_ID\" }}) { projectV2Item { id }}}"}' \
+            https://api.github.com/graphql
