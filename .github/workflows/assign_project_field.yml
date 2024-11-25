@@ -3,14 +3,13 @@ on:
   issues:
     types:
       - labeled
-
 jobs:
   update_project_field:
     runs-on: ubuntu-latest
     steps:
       - name: Update Project Field
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
         run: |
           LABEL="Severity 1 - Bug"
           ISSUE_NODE_ID="I_kwDONSxMlc6gevBq"
