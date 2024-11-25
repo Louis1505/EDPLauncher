@@ -1,0 +1,22 @@
+name: Assign Project Field Based on Label
+on:
+  issues:
+    types:
+      - labeled
+
+jobs:
+  update_project_field:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Single-Select Field in Project
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          LABEL=${{ github.event.label.name }}
+          if [[ "$LABEL" =~ ^p[1-5]$ ]]; then
+            curl -X POST -H "Authorization: Bearer $WORKFLOW_TOKEN" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "query": "mutation { updateProjectNextItemField(input: { projectId: \"<PROJECT_ID>\", itemId: \"${{ github.event.issue.node_id }}\", fieldId: \"<FIELD_ID>\", value: \"$LABEL\" }) { clientMutationId } }"
+              }' https://api.github.com/graphql
+          fi
