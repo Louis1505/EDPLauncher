@@ -12,7 +12,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          LABEL=${{ github.event.label.name }}
+          LABEL="${{ github.event.label.name }}"
           ISSUE_NODE_ID=${{ github.event.issue.node_id }}
 
           # Map labels to project field option IDs
