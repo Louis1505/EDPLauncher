@@ -12,9 +12,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          LABEL="${{ github.event.label.name }}"
-          ISSUE_NODE_ID="${{ github.event.issue.node_id }}"
-
+          LABEL="Severity 1 - Bug"
+          ISSUE_NODE_ID="I_kwDONSxMlc6gevBq"
+          
           # Map labels to project field option IDs
           if [ "$LABEL" = "Severity 1 - Bug" ]; then
             OPTION_ID="269d0976"
@@ -23,9 +23,13 @@ jobs:
           else
             exit 0
           fi
-
+          
+          # Debugging-Ausgabe
+          echo "ISSUE_NODE_ID is: $ISSUE_NODE_ID"
+          echo "OPTION_ID is: $OPTION_ID"
+          
           # Update the project field using the GraphQL API
           curl -X POST -H "Authorization: Bearer $GITHUB_TOKEN" \
             -H "Content-Type: application/json" \
-            --data '{"query":"mutation { updateProjectV2ItemFieldValue(input: { projectId: \"PVT_kwHOBLqZMc4As--D\", itemId: \"$ISSUE_NODE_ID\", fieldId: \"150598072\", value: { singleSelectOptionId: \"$OPTION_ID\" }}) { projectV2Item { id }}}"}' \
+            --data "{\"query\":\"mutation { updateProjectV2ItemFieldValue(input: { projectId: \\\"PVT_kwHOBLqZMc4As--D\\\", itemId: \\\"$ISSUE_NODE_ID\\\", fieldId: \\\"150598072\\\", value: { singleSelectOptionId: \\\"$OPTION_ID\\\" }}) { projectV2Item { id }}}\"}" \
             https://api.github.com/graphql
