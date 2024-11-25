@@ -7,12 +7,27 @@ jobs:
   update_project_field:
     runs-on: ubuntu-latest
     steps:
+      - name: Get Project Item ID
+        env:
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+        run: |
+          ISSUE_NODE_ID=${{ github.event.issue.node_id }}
+          
+          # GraphQL-Query zur Ermittlung der Item-ID
+          QUERY='{"query":"query($issueId: ID!) { node(id: $issueId) { ... on Issue { projectV2Items(first: 100) { nodes { id project { id } } } } } }","variables":{"issueId":"'$ISSUE_NODE_ID'"}}'
+          
+          # Führe die Anfrage aus und speichere die Item-ID
+          ITEM_ID=$(curl -s -X POST -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Content-Type: application/json" \
+            --data "$QUERY" https://api.github.com/graphql | jq -r '.data.node.projectV2Items.nodes[0].id')
+          
+          echo "ITEM_ID=$ITEM_ID" >> $GITHUB_ENV
+          
       - name: Update Project Field
         env:
           GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
         run: |
           LABEL="${{ github.event.label.name }}"
-          ISSUE_NODE_ID=${{ github.event.issue.node_id }}
           
           # Map labels to project field option IDs
           if [ "$LABEL" = "Severity 1 - Bug" ]; then
@@ -22,13 +37,13 @@ jobs:
           else
             exit 0
           fi
-          
+
           # Debugging-Ausgabe
-          echo "ISSUE_NODE_ID is: $ISSUE_NODE_ID"
+          echo "ITEM_ID is: $ITEM_ID"
           echo "OPTION_ID is: $OPTION_ID"
-          
+
           # Update the project field using the GraphQL API
           curl -X POST -H "Authorization: Bearer $GITHUB_TOKEN" \
             -H "Content-Type: application/json" \
-            --data "{\"query\":\"mutation { updateProjectV2ItemFieldValue(input: { projectId: \\\"PVT_kwHOBLqZMc4As--D\\\", itemId: \\\"$ISSUE_NODE_ID\\\", fieldId: \\\"PVTSSF_lAHOBLqZMc4As--Dzgj58bg\\\", value: { singleSelectOptionId: \\\"$OPTION_ID\\\" }}) { projectV2Item { id }}}\"}" \
+            --data "{\"query\":\"mutation { updateProjectV2ItemFieldValue(input: { projectId: \\\"PVT_kwHOBLqZMc4As--D\\\", itemId: \\\"$ITEM_ID\\\", fieldId: \\\"PVTSSF_lAHOBLqZMc4As--Dzgj58bg\\\", value: { singleSelectOptionId: \\\"$OPTION_ID\\\" }}) { projectV2Item { id }}}\"}" \
             https://api.github.com/graphql
