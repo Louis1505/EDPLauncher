@@ -29,100 +29,111 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.button_prod = new System.Windows.Forms.Button();
-            this.button_not = new System.Windows.Forms.Button();
-            this.button_test = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label_user = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            button_prod = new Button();
+            button_not = new Button();
+            button_test = new Button();
+            pictureBox1 = new PictureBox();
+            label_user = new Label();
+            checkBox1 = new CheckBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // button_prod
             // 
-            this.button_prod.FlatAppearance.BorderSize = 0;
-            this.button_prod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_prod.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button_prod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button_prod.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button_prod.Location = new System.Drawing.Point(12, 137);
-            this.button_prod.Name = "button_prod";
-            this.button_prod.Size = new System.Drawing.Size(129, 92);
-            this.button_prod.TabIndex = 0;
-            this.button_prod.Text = "EDP\r\nProduktiv";
-            this.button_prod.UseVisualStyleBackColor = true;
-            this.button_prod.Click += new System.EventHandler(this.button_prod_Click);
+            button_prod.FlatAppearance.BorderSize = 0;
+            button_prod.FlatStyle = FlatStyle.Flat;
+            button_prod.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            button_prod.ForeColor = Color.FromArgb(64, 64, 64);
+            button_prod.ImageAlign = ContentAlignment.TopCenter;
+            button_prod.Location = new Point(12, 137);
+            button_prod.Name = "button_prod";
+            button_prod.Size = new Size(129, 92);
+            button_prod.TabIndex = 0;
+            button_prod.Text = "EDP\r\nProduktiv";
+            button_prod.UseVisualStyleBackColor = true;
+            button_prod.Click += button_prod_Click;
             // 
             // button_not
             // 
-            this.button_not.FlatAppearance.BorderSize = 0;
-            this.button_not.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_not.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button_not.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button_not.Location = new System.Drawing.Point(346, 137);
-            this.button_not.Name = "button_not";
-            this.button_not.Size = new System.Drawing.Size(129, 92);
-            this.button_not.TabIndex = 4;
-            this.button_not.Text = "EDP\r\nNot\r\n";
-            this.button_not.UseVisualStyleBackColor = true;
-            this.button_not.Click += new System.EventHandler(this.button_not_Click);
+            button_not.FlatAppearance.BorderSize = 0;
+            button_not.FlatStyle = FlatStyle.Flat;
+            button_not.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            button_not.ForeColor = Color.FromArgb(64, 64, 64);
+            button_not.Location = new Point(346, 137);
+            button_not.Name = "button_not";
+            button_not.Size = new Size(129, 92);
+            button_not.TabIndex = 4;
+            button_not.Text = "EDP\r\nNot\r\n";
+            button_not.UseVisualStyleBackColor = true;
+            button_not.Click += button_not_Click;
             // 
             // button_test
             // 
-            this.button_test.FlatAppearance.BorderSize = 0;
-            this.button_test.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_test.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button_test.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button_test.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button_test.Location = new System.Drawing.Point(179, 137);
-            this.button_test.Name = "button_test";
-            this.button_test.Size = new System.Drawing.Size(129, 92);
-            this.button_test.TabIndex = 5;
-            this.button_test.Text = "EDP\r\nTest";
-            this.button_test.UseVisualStyleBackColor = true;
-            this.button_test.Click += new System.EventHandler(this.button_test_Click);
+            button_test.FlatAppearance.BorderSize = 0;
+            button_test.FlatStyle = FlatStyle.Flat;
+            button_test.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            button_test.ForeColor = Color.FromArgb(64, 64, 64);
+            button_test.ImageAlign = ContentAlignment.TopCenter;
+            button_test.Location = new Point(179, 137);
+            button_test.Name = "button_test";
+            button_test.Size = new Size(129, 92);
+            button_test.TabIndex = 5;
+            button_test.Text = "EDP\r\nTest";
+            button_test.UseVisualStyleBackColor = true;
+            button_test.Click += button_test_Click;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(37, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(431, 77);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(37, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(431, 77);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
             // 
             // label_user
             // 
-            this.label_user.AutoSize = true;
-            this.label_user.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label_user.ForeColor = System.Drawing.Color.White;
-            this.label_user.Location = new System.Drawing.Point(37, 108);
-            this.label_user.Name = "label_user";
-            this.label_user.Size = new System.Drawing.Size(33, 17);
-            this.label_user.TabIndex = 7;
-            this.label_user.Text = "user";
+            label_user.AutoSize = true;
+            label_user.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label_user.ForeColor = Color.White;
+            label_user.Location = new Point(37, 108);
+            label_user.Name = "label_user";
+            label_user.Size = new Size(33, 17);
+            label_user.TabIndex = 7;
+            label_user.Text = "user";
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(223, 116);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(83, 19);
+            checkBox1.TabIndex = 8;
+            checkBox1.Text = "checkBox1";
+            checkBox1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(488, 241);
-            this.Controls.Add(this.label_user);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button_test);
-            this.Controls.Add(this.button_not);
-            this.Controls.Add(this.button_prod);
-            this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
-            this.Text = "EDP Launcher";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.AppWorkspace;
+            BackgroundImageLayout = ImageLayout.None;
+            ClientSize = new Size(488, 241);
+            Controls.Add(checkBox1);
+            Controls.Add(label_user);
+            Controls.Add(pictureBox1);
+            Controls.Add(button_test);
+            Controls.Add(button_not);
+            Controls.Add(button_prod);
+            DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "Form1";
+            Text = "EDP Launcher";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -132,5 +143,6 @@
         private Button button_test;
         private PictureBox pictureBox1;
         private Label label_user;
+        private CheckBox checkBox1;
     }
 }
