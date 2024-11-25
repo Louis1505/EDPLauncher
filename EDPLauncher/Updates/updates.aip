@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="22.2" version="22.2" Modules="update" RootPath="." Language="en" Id="{B1F30D2C-9407-4BA0-A1C5-BD9195E2C6EA}">
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;aiu-ue.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;aiu-ue_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.UpdaterEditorComponent">
+    <ROW Section="Update" Key="Name" Value="EDPLauncher"/>
+    <ROW Section="Update" Key="ProductVersion" Value="1.0.3.0" ValueLocId="-"/>
+    <ROW Section="Update" Key="URL" Value="https://github.com/Louis1505/EDPLauncher/tree/master/EDPLauncher/Updates/UpdateExe" ValueLocId="-"/>
+    <ROW Section="Update" Key="Size" Value="UpdateExe\EDPLauncherSetup.exe" ValueLocId="-"/>
+    <ROW Section="Update" Key="SHA256" Value="UpdateExe\EDPLauncherSetup.exe" ValueLocId="-"/>
+    <ROW Section="Update" Key="MD5" Value="UpdateExe\EDPLauncherSetup.exe" ValueLocId="-"/>
+    <ROW Section="Update" Key="ServerFileName" Value="EDPLauncherSetup.exe" ValueLocId="-"/>
+    <ROW Section="Update" Key="Flags" Value="Critical" ValueLocId="-"/>
+    <ROW Section="Update" Key="RegistryKey" Value="HKUD\Software\Feuerwehr Stadt Bad Harzburg\EDPLauncher\Version" ValueLocId="-"/>
+    <ROW Section="Update" Key="Version" Value="1.0.3.0" ValueLocId="-"/>
+    <ROW Section="Update" Key="Description" Value="Test"/>
+    <ROW Section="Update" Key="Feature" Value="Neu&#9;"/>
+    <ROW Section="Update" Key="Enhancement" Value="Super"/>
+    <ATTRIBUTE name="OutputFileName" value=".txt"/>
+  </COMPONENT>
+</DOCUMENT>
