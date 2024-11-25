@@ -54,7 +54,7 @@ namespace EDPLauncher
 
             if (splitIndex == -1)
             {
-                throw new ArgumentException("Der Name muss Vorname und Nachname enthalten.");
+                return "test.name";
             }
 
             // Vorname und Nachname trennen
