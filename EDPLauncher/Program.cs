@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using System.Net.Http;
+using System.Reflection;
 
 namespace EDPLauncher
 {
@@ -10,42 +12,82 @@ namespace EDPLauncher
         [STAThread]
         static void Main()
         {
-            string updaterPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EDPLauncherUpdate.exe");
+            string updaterPath = "C:\\EDP\\EDPLauncher\\EDPLauncherUpdate.exe";
+            string currentVersion = GetCurrentVersion();
 
-            // Prüfen, ob die Updater-Exe existiert
-            if (File.Exists(updaterPath))
+            // Neue Version von GitHub abrufen
+            string newVersion = GetNewVersionFromGitHub().Result;
+
+            if (IsNewVersionAvailable(currentVersion, newVersion))
             {
-                try
+                // Prüfen, ob die Updater-Exe existiert
+                if (File.Exists(updaterPath))
                 {
-                    // Starten der Updater-Exe mit optionalen Argumenten
-                    Process updaterProcess = Process.Start(updaterPath, "/checknow /silent");
-                    updaterProcess.WaitForExit(); // Warten, bis der Updater abgeschlossen ist
+                    try
+                    {
+                        // Starten der Updater-Exe mit optionalen Argumenten
+                        Process updaterProcess = Process.Start(updaterPath, "/checknow /silent");
+                        updaterProcess.WaitForExit(); // Warten, bis der Updater abgeschlossen ist
 
-                    // Optional: Überprüfen des Exit-Codes des Updaters
-                    if (updaterProcess.ExitCode == 0)
-                    {
-                        MessageBox.Show("Updates erfolgreich überprüft oder installiert.");
+                        // Anwendung ohne Meldung beenden
+                        Environment.Exit(0);
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        
+                        MessageBox.Show($"Fehler beim Starten des Updaters: {ex.Message}");
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show($"Fehler beim Starten des Updaters: {ex.Message}");
+                    MessageBox.Show("Die Datei 'updater.exe' wurde nicht gefunden.");
                 }
             }
             else
             {
-                MessageBox.Show("Die Datei 'updater.exe' wurde nicht gefunden.");
+                // To customize application configuration such as set high DPI settings or default font,
+                // see https://aka.ms/applicationconfiguration.
+                ApplicationConfiguration.Initialize();
+                Application.Run(new Form1());
             }
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+        }
 
+        private static string GetCurrentVersion()
+        {
+            return Assembly.GetExecutingAssembly().GetName().Version.ToString();
+        }
 
+        private static async Task<string> GetNewVersionFromGitHub()
+        {
+            string url = "https://raw.githubusercontent.com/Louis1505/EDPLauncher/refs/heads/master/EDPLauncher/Updates/update.txt"; // URL zur Textdatei auf GitHub
+            using HttpClient client = new HttpClient();
+            try
+            {
+                string content = await client.GetStringAsync(url);
+                return ParseLatestVersion(content);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fehler beim Abrufen der neuen Version: {ex.Message}");
+                return ""; // Rückgabe der aktuellen Version im Fehlerfall
+            }
+        }
+
+        private static string ParseLatestVersion(string content)
+        {
+            var lines = content.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var line in lines)
+            {
+                if (line.StartsWith("[") && line.EndsWith("]"))
+                {
+                    return line.Trim('[', ']');
+                }
+            }
+            return "";
+        }
+
+        private static bool IsNewVersionAvailable(string currentVersion, string newVersion)
+        {
+            return string.Compare(currentVersion, newVersion, StringComparison.Ordinal) < 0;
         }
     }
 }
