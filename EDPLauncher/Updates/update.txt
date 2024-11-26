@@ -1,11 +1,12 @@
 ;aiu;
 
-[Update #1]
+[1.0.0.0]
 Name = EDPLauncher
-ProductVersion = 2.0.1.0
+ProductVersion = 1.0.0.0
 URL = https://github.com/Louis1505/EDPLauncher/blob/master/EDPLauncher/Updates/UpdateExe/EDPLauncherSetup.exe
-Size = 36951735
+Size = 95120622
 ServerFileName = EDPLauncherSetup.exe
-Flags = Critical
 RegistryKey = HKUD\Software\Feuerwehr Stadt Bad Harzburg\EDPLauncher\Version
-Version = 2.0.1.0
+Version = 1.0.0.0
+Description = V1.0.0.0
+AutoCloseApplication = [APPDIR]EDPLauncher.exe|;;AlwaysRestart
