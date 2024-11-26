@@ -28,7 +28,7 @@ namespace EDPLauncher
                     }
                     else
                     {
-                        MessageBox.Show("Fehler beim Updateprozess.");
+                        
                     }
                 }
                 catch (Exception ex)

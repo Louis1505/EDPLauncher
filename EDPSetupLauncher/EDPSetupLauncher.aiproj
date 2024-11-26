@@ -22,6 +22,8 @@
     <PackageName>
     </PackageName>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'MsiBuild' " />
+  <PropertyGroup Condition=" '$(Configuration)' == 'All' " />
   <ItemGroup>
     <Compile Include="EDPSetupLauncher.aip">
       <SubType>Code</SubType>
