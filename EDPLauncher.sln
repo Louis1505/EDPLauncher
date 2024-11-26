@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EDPLauncher", "EDPLauncher\EDPLauncher.csproj", "{C6869D0F-411C-4561-B2EE-E59E6594E356}"
 EndProject
-Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "EDP Launcher Setup", "EDP Launcher Setup\EDP Launcher Setup.aiproj", "{0DD9C59A-DBEA-4FEC-A3BC-32570FEED4DA}"
+Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "EDPSetupLauncher", "EDPSetupLauncher\EDPSetupLauncher.aiproj", "{FC93DB9E-476F-4716-AD89-040E628FCBB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,12 +20,12 @@ Global
 		{C6869D0F-411C-4561-B2EE-E59E6594E356}.DefaultBuild|Any CPU.Build.0 = Debug|Any CPU
 		{C6869D0F-411C-4561-B2EE-E59E6594E356}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6869D0F-411C-4561-B2EE-E59E6594E356}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0DD9C59A-DBEA-4FEC-A3BC-32570FEED4DA}.Debug|Any CPU.ActiveCfg = DefaultBuild
-		{0DD9C59A-DBEA-4FEC-A3BC-32570FEED4DA}.Debug|Any CPU.Build.0 = DefaultBuild
-		{0DD9C59A-DBEA-4FEC-A3BC-32570FEED4DA}.DefaultBuild|Any CPU.ActiveCfg = DefaultBuild
-		{0DD9C59A-DBEA-4FEC-A3BC-32570FEED4DA}.DefaultBuild|Any CPU.Build.0 = DefaultBuild
-		{0DD9C59A-DBEA-4FEC-A3BC-32570FEED4DA}.Release|Any CPU.ActiveCfg = DefaultBuild
-		{0DD9C59A-DBEA-4FEC-A3BC-32570FEED4DA}.Release|Any CPU.Build.0 = DefaultBuild
+		{FC93DB9E-476F-4716-AD89-040E628FCBB7}.Debug|Any CPU.ActiveCfg = DefaultBuild
+		{FC93DB9E-476F-4716-AD89-040E628FCBB7}.Debug|Any CPU.Build.0 = DefaultBuild
+		{FC93DB9E-476F-4716-AD89-040E628FCBB7}.DefaultBuild|Any CPU.ActiveCfg = DefaultBuild
+		{FC93DB9E-476F-4716-AD89-040E628FCBB7}.DefaultBuild|Any CPU.Build.0 = DefaultBuild
+		{FC93DB9E-476F-4716-AD89-040E628FCBB7}.Release|Any CPU.ActiveCfg = DefaultBuild
+		{FC93DB9E-476F-4716-AD89-040E628FCBB7}.Release|Any CPU.Build.0 = DefaultBuild
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
