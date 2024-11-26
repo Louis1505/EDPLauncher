@@ -49,6 +49,7 @@
     <ROW Directory="Lagekarte_Dir" Directory_Parent="Zusatzdateien_Dir" DefaultDir="LAGEKA~1|Lagekarte"/>
     <ROW Directory="LdF_Dir" Directory_Parent="Zusatzdateien_Dir" DefaultDir="LdF"/>
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+    <ROW Directory="Updates_Dir" Directory_Parent="APPDIR" DefaultDir="Updates"/>
     <ROW Directory="Zusatzdateien_Dir" Directory_Parent="Konfiguration_Dir" DefaultDir="ZUSATZ~1|Zusatzdateien"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.SideBySideGuidComponent">
@@ -67,6 +68,7 @@
     <ROW Component="ELP_Backup.ini_3" ComponentId="{7CFC9722-0F0C-429A-A115-F2F165FAA9F2}" Directory_="Lagekarte_Dir" Attributes="0" KeyPath="ELP_Backup.ini_3" Type="0"/>
     <ROW Component="ELP_Backup.ini_4" ComponentId="{9ACEF000-66ED-451C-BBFB-33EDDD359BD6}" Directory_="LdF_Dir" Attributes="0" KeyPath="ELP_Backup.ini_4" Type="0"/>
     <ROW Component="ProductInformation" ComponentId="{9B323C4F-E07A-49C2-B445-114E66143F7B}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="Updates" ComponentId="{3D94ECA3-2A44-4D9D-B5CB-782D97A1BD4D}" Directory_="Updates_Dir" Attributes="0"/>
     <ROW Component="updater.exe" ComponentId="{F6E87194-709E-4630-A50E-82A16DF5A345}" Directory_="APPDIR" Attributes="0" KeyPath="updater.exe"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
@@ -216,6 +218,7 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
     <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
+    <ROW Directory_="Updates_Dir" Component_="Updates" ManualDelete="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
     <ROW Action="AI_AppSearchEx" Type="1" Source="Prereq.dll" Target="DoAppSearchEx"/>
@@ -255,7 +258,7 @@
     <ROW Action="AI_UPDATER_UNINSTALL" Type="82" Source="updater.exe" Target="/clean silent"/>
     <ROW Action="AI_VerifyPrePrereq" Type="1" Source="Prereq.dll" Target="VerifyPrePrereq"/>
     <ROW Action="AI_VerifyPrereq" Type="1" Source="Prereq.dll" Target="VerifyPrereq"/>
-    <ROW Action="LaunchFile" Type="1026" Source="viewer.exe" Target="C:\EDP\EDPLauncher\EDPLauncher.exe" Options="1"/>
+    <ROW Action="LaunchFile" Type="1218" Source="viewer.exe" Target="/DontWait C:\EDP\EDPLauncher\EDPLauncher.exe" Options="1"/>
     <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:C:\EDP\EDPLauncher"/>
     <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
@@ -273,6 +276,7 @@
     <ROW Feature_="MainFeature" Component_="AI_PROPPATH_FILENAME_PERBUILD_EDPL_1_auncher.exe"/>
     <ROW Feature_="MainFeature" Component_="updater.exe"/>
     <ROW Feature_="E92D3665B5E468A8661F6547C8C142C" Component_="E92D3665B5E468A8661F6547C8C142C"/>
+    <ROW Feature_="MainFeature" Component_="Updates"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="AI_PROPPATH_FILENAME_PERBUILD_EDPL.exe_auncher" SourcePath="..\EDPLauncher\favicon.ico" Index="0"/>

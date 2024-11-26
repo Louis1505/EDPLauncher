@@ -12,34 +12,30 @@ namespace EDPLauncher
         [STAThread]
         static void Main()
         {
-            string updaterPath = "C:\\EDP\\EDPLauncher\\EDPLauncherUpdate.exe";
-            string currentVersion = GetCurrentVersion();
+            string downloadUrl = "https://raw.githubusercontent.com/Louis1505/EDPLauncher/refs/heads/master/EDPLauncher/Updates/UpdateExe/EDPLauncherSetup.exe";
+            string downloadPath = "C:\\EDP\\EDPLauncher\\Updates\\EDPLauncherSetup.exe";
+            string currentVersion = "1.0.0.0";
 
             // Neue Version von GitHub abrufen
             string newVersion = GetNewVersionFromGitHub().Result;
 
             if (IsNewVersionAvailable(currentVersion, newVersion))
             {
-                // Prüfen, ob die Updater-Exe existiert
-                if (File.Exists(updaterPath))
+                try
                 {
-                    try
-                    {
-                        // Starten der Updater-Exe mit optionalen Argumenten
-                        Process updaterProcess = Process.Start(updaterPath, "/checknow /silent");
-                        updaterProcess.WaitForExit(); // Warten, bis der Updater abgeschlossen ist
+                    // Neue Datei herunterladen
+                    DownloadNewVersion(downloadUrl, downloadPath).Wait();
 
-                        // Anwendung ohne Meldung beenden
-                        Environment.Exit(0);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Fehler beim Starten des Updaters: {ex.Message}");
-                    }
+                    // Neue Datei ausführen
+                    Process newVersionProcess = Process.Start(downloadPath);
+                    newVersionProcess.WaitForExit(); // Warten, bis die neue Version abgeschlossen ist
+
+                    // Anwendung ohne Meldung beenden
+                    Environment.Exit(0);
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Die Datei 'updater.exe' wurde nicht gefunden.");
+                    MessageBox.Show($"Fehler beim Herunterladen oder Starten der neuen Version: {ex.Message}");
                 }
             }
             else
@@ -88,6 +84,21 @@ namespace EDPLauncher
         private static bool IsNewVersionAvailable(string currentVersion, string newVersion)
         {
             return string.Compare(currentVersion, newVersion, StringComparison.Ordinal) < 0;
+        }
+
+        private static async Task DownloadNewVersion(string url, string path)
+        {
+            using HttpClient client = new HttpClient();
+            try
+            {
+                byte[] data = await client.GetByteArrayAsync(url);
+                await File.WriteAllBytesAsync(path, data);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fehler beim Herunterladen der neuen Version: {ex.Message}");
+                throw;
+            }
         }
     }
 }
