@@ -22,19 +22,19 @@ namespace EDPLauncher
             button_not.ForeColor = ColorTranslator.FromHtml("#ffffff");
 
             string fullName = Environment.UserName;
-            username=FormatUsername(fullName);
-            label_user.Text = "Es wird eingeloggt: "+username;
+            username = FormatUsername(fullName);
+            label_user.Text = "Es wird eingeloggt: " + username;
 
         }
-        
+
         string ausgabe = @"C:\EDP\ELP\ELP.ini";
         string standard = @"C:\EDP\EDPLauncher\Konfiguration\ELP_Backup.ini";
         string edpExe = @"C:\EDP\ELP\ELP.exe";
         string username;
         string fullName;
 
-        
-    static string FormatUsername(string fullName)
+
+        static string FormatUsername(string fullName)
         {
             if (string.IsNullOrWhiteSpace(fullName))
             {
@@ -66,7 +66,7 @@ namespace EDPLauncher
         }
 
         private void button_prod_Click(object sender, EventArgs e)
-        {     
+        {
             string system_ini = @"C:\EDP\EDPLauncher\Konfiguration\prod.ini";
             create_ini(system_ini);
         }
@@ -86,7 +86,7 @@ namespace EDPLauncher
             try
             {
                 // Überprüfen, ob die Dateien existieren
-                
+
 
                 if (!File.Exists(system_ini))
                 {
@@ -99,7 +99,7 @@ namespace EDPLauncher
                 using (StreamWriter writer = new StreamWriter(ausgabe))
                 {
                     writer.WriteLine("[Autologon]");
-                    writer.WriteLine("Benutzer="+username);
+                    writer.WriteLine("Benutzer=" + username);
                     writer.WriteLine("Passwort=7b3XshGnPqhCxg89EiCE");
                     writer.Write(File.ReadAllText(system_ini));
                 }
@@ -149,6 +149,11 @@ namespace EDPLauncher
         }
 
         private void button_test_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

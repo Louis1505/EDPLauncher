@@ -6,6 +6,7 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
     <ROW Property="AI_FINDEXE_TITLE" Value="Select the installation package for [|ProductName]" ValueLocId="AI.Property.FindExeTitle"/>
+    <ROW Property="AI_PREREQ_REPAIR_ENABLED" MultiBuildValue="DefaultBuild:1"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_EDPLauncher.deps.json" Value="EDPLauncher.deps.json"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_EDPLauncher.dll" Value="EDPLauncher.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_EDPLauncher.exe" Value="EDPLauncher.exe"/>
@@ -22,10 +23,10 @@
     <ROW Property="AiEmbeddedUI" Value="1"/>
     <ROW Property="AiWinUI" Value="1"/>
     <ROW Property="Manufacturer" Value="Feuerwehr Stadt Bad Harzburg"/>
-    <ROW Property="ProductCode" Value="1033:{816D27FB-9E63-47E6-A5CB-49F1A0AB2605} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{40A12E4C-A5BF-49A7-903B-BB69EAB4592B} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="EDPLauncher"/>
-    <ROW Property="ProductVersion" Value="1.0.0.4" Options="4"/>
+    <ROW Property="ProductVersion" Value="1.0.1.0" Options="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{58CC8BDD-AA02-45AD-B00E-A084DEC3C7CA}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -154,6 +155,7 @@
     <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
     <ROW Name="file_deleter.ps1" SourcePath="&lt;AI_SCRIPTS&gt;file_deleter.ps1"/>
     <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
+    <ROW Name="viewer.exe" SourcePath="&lt;AI_CUSTACTS&gt;viewer.exe" DigSign="true"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
     <ROW Dialog_="MaintenanceWelcomeDlg" Control="MaintenanceWelcomeDlgDialogInitializer" Type="DialogInitializer" X="0" Y="0" Width="0" Height="0" Attributes="0" Order="-1" TextLocId="-" HelpLocId="-" ExtDataLocId="-"/>
@@ -253,6 +255,7 @@
     <ROW Action="AI_UPDATER_UNINSTALL" Type="82" Source="updater.exe" Target="/clean silent"/>
     <ROW Action="AI_VerifyPrePrereq" Type="1" Source="Prereq.dll" Target="VerifyPrePrereq"/>
     <ROW Action="AI_VerifyPrereq" Type="1" Source="Prereq.dll" Target="VerifyPrereq"/>
+    <ROW Action="LaunchFile" Type="1026" Source="viewer.exe" Target="C:\EDP\EDPLauncher\EDPLauncher.exe" Options="1"/>
     <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:C:\EDP\EDPLauncher"/>
     <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
@@ -308,6 +311,7 @@
     <ROW Action="AI_MigrateInstallerProps" Condition="SETUPEXEDIR AND ((UILevel = 2) OR (UILevel = 3))" Sequence="6599"/>
     <ROW Action="AI_VerifyPrereq" Sequence="1101"/>
     <ROW Action="AI_AppSearchEx" Sequence="101"/>
+    <ROW Action="LaunchFile" Sequence="6401"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
     <ROW Action="AI_PRESERVE_INSTALL_TYPE" Sequence="199"/>
