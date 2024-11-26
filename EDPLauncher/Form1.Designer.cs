@@ -34,6 +34,7 @@
             button_test = new Button();
             pictureBox1 = new PictureBox();
             label_user = new Label();
+            btn_close = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -103,6 +104,22 @@
             label_user.TabIndex = 7;
             label_user.Text = "user";
             // 
+            // btn_close
+            // 
+            btn_close.AutoSize = true;
+            btn_close.FlatAppearance.BorderSize = 0;
+            btn_close.FlatStyle = FlatStyle.Flat;
+            btn_close.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_close.ForeColor = Color.Red;
+            btn_close.Location = new Point(448, -8);
+            btn_close.Name = "btn_close";
+            btn_close.Size = new Size(53, 57);
+            btn_close.TabIndex = 8;
+            btn_close.Text = "X";
+            btn_close.TextAlign = ContentAlignment.TopCenter;
+            btn_close.UseVisualStyleBackColor = true;
+            btn_close.Click += btn_close_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -110,6 +127,7 @@
             BackColor = SystemColors.AppWorkspace;
             BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(488, 241);
+            Controls.Add(btn_close);
             Controls.Add(label_user);
             Controls.Add(pictureBox1);
             Controls.Add(button_test);
@@ -132,5 +150,6 @@
         private Button button_test;
         private PictureBox pictureBox1;
         private Label label_user;
+        private Button btn_close;
     }
 }

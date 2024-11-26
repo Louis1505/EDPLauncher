@@ -157,5 +157,10 @@ namespace EDPLauncher
         {
 
         }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }
