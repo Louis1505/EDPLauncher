@@ -54,7 +54,7 @@ namespace EDPLauncher
 
             if (splitIndex == -1)
             {
-                return "test.name";
+                return "Kein passender Benutzer gefunden!";
             }
 
             // Vorname und Nachname trennen

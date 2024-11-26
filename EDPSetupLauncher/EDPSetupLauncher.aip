@@ -27,12 +27,12 @@
     <ROW Property="ARPCONTACT" Value="iuk@feuerwehr-badharzburg.de"/>
     <ROW Property="ARPNOMODIFY" MultiBuildValue="DefaultBuild:1"/>
     <ROW Property="ARPNOREPAIR" Value="1" MultiBuildValue="DefaultBuild:1"/>
-    <ROW Property="ARPPRODUCTICON" Value="favicon.exe" Type="8"/>
+    <ROW Property="ARPPRODUCTICON" Value="AI_PROPPATH_FILENAME_PERBUILD_EDPL.exe_auncher" Type="8"/>
     <ROW Property="Manufacturer" Value="Feuerwehr Stadt Bad Harzburg"/>
-    <ROW Property="ProductCode" Value="1033:{DA606101-91FA-4973-B4E9-F73B5816CDFE} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{F76B3B7C-D0E9-49E0-98E9-6C61C6891754} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="EDPLauncher"/>
-    <ROW Property="ProductVersion" Value="1.0.0.0" Options="32"/>
+    <ROW Property="ProductVersion" Value="1.0.0.1" Options="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{58CC8BDD-AA02-45AD-B00E-A084DEC3C7CA}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -274,7 +274,6 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="AI_PROPPATH_FILENAME_PERBUILD_EDPL.exe_auncher" SourcePath="..\EDPLauncher\favicon.ico" Index="0"/>
-    <ROW Name="favicon.exe" SourcePath="..\..\EDPLauncher\EDPLauncher\favicon.ico" Index="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIniFileComponent">
     <ROW IniFile="AppDir" FileName="EDPLAU~1.INI|EDPLauncherUpdate.ini" DirProperty="APPDIR" Section="General" Key="AppDir" Value="[APPDIR]" Action="0" Component_="updater.exe"/>
@@ -286,7 +285,7 @@
     <ROW IniFile="DownloadsFolder" FileName="EDPLAU~1.INI|EDPLauncherUpdate.ini" DirProperty="APPDIR" Section="General" Key="DownloadsFolder" Value="[CommonAppDataFolder][Manufacturer]\[ProductName]\updates\" Action="0" Component_="updater.exe"/>
     <ROW IniFile="Flags" FileName="EDPLAU~1.INI|EDPLauncherUpdate.ini" DirProperty="APPDIR" Section="General" Key="Flags" Value="PerMachine|ShowConfigOptionsButton" Action="0" Component_="updater.exe"/>
     <ROW IniFile="ID" FileName="EDPLAU~1.INI|EDPLauncherUpdate.ini" DirProperty="APPDIR" Section="General" Key="ID" Value="[UpgradeCode]" Action="0" Component_="updater.exe"/>
-    <ROW IniFile="URL" FileName="EDPLAU~1.INI|EDPLauncherUpdate.ini" DirProperty="APPDIR" Section="General" Key="URL" Value="https://github.com/Louis1505/EDPLauncher/blob/master/EDPLauncher/Updates/updates.txt" Action="0" Component_="updater.exe"/>
+    <ROW IniFile="URL" FileName="EDPLAU~1.INI|EDPLauncherUpdate.ini" DirProperty="APPDIR" Section="General" Key="URL" Value="https://raw.githubusercontent.com/Louis1505/EDPLauncher/refs/heads/master/EDPLauncher/Updates/update.txt" Action="0" Component_="updater.exe"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
     <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
