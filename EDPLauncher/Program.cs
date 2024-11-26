@@ -14,7 +14,7 @@ namespace EDPLauncher
         {
             string downloadUrl = "https://raw.githubusercontent.com/Louis1505/EDPLauncher/refs/heads/master/EDPLauncher/Updates/UpdateExe/EDPLauncherSetup.exe";
             string downloadPath = "C:\\EDP\\EDPLauncher\\Updates\\EDPLauncherSetup.exe";
-            string currentVersion = "1.0.0.0";
+            string currentVersion = GetCurrentVersion();
 
             // Neue Version von GitHub abrufen
             string newVersion = GetNewVersionFromGitHub().Result;
