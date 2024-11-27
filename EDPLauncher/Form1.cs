@@ -23,6 +23,7 @@ namespace EDPLauncher
 
             string fullName = Environment.UserName;
             username = FormatUsername(fullName);
+            username += username + "*";
             label_user.Text = "Es wird eingeloggt: " + username;
 
         }
