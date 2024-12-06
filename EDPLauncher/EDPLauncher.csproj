@@ -33,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="ini-parser" Version="2.5.2" />
     <PackageReference Include="Microsoft.NETCore.Targets" Version="5.0.0" />
     <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
     <PackageReference Include="System.DirectoryServices.AccountManagement" Version="9.0.0" />

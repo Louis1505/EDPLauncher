@@ -3,6 +3,8 @@ using System.Net.Http;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IniParser;
+using IniParser.Model;
 
 namespace EDPLauncher
 {
@@ -17,7 +19,11 @@ namespace EDPLauncher
             string downloadUrl = "https://raw.githubusercontent.com/Louis1505/EDPLauncher/refs/heads/master/EDPLauncher/Updates/UpdateExe/EDPLauncherSetup.exe";
             string downloadPath = "C:\\EDP\\EDPLauncher\\Updates\\EDPLauncherSetup.exe";
             string currentVersion = GetCurrentVersion();
+            var parser = new FileIniDataParser();
+            IniData data = parser.ReadFile(@"C:\EDP\EDPLauncher\EDPLauncher.ini");
 
+            // Wert auslesen
+            string PC = data["Settings"]["PC"];
             // Neue Version von GitHub abrufen
             string newVersion = GetNewVersionFromGitHub().Result;
 
@@ -47,7 +53,7 @@ namespace EDPLauncher
                 // To customize application configuration such as set high DPI settings or default font,
                 // see https://aka.ms/applicationconfiguration.
                 ApplicationConfiguration.Initialize();
-                Application.Run(new Form1());
+                Application.Run(new Form1(PC));
             }
         }
 

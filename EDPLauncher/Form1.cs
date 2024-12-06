@@ -5,12 +5,13 @@ using System.Security.Principal;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.DirectoryServices.AccountManagement;
 using Outlook = Microsoft.Office.Interop.Outlook;
+using System.Text;
 
 namespace EDPLauncher
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        public Form1(string PC)
         {
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#2f2f2f");
@@ -20,17 +21,46 @@ namespace EDPLauncher
             button_test.ForeColor = ColorTranslator.FromHtml("#ffffff");
             button_not.BackColor = ColorTranslator.FromHtml("#535353");
             button_not.ForeColor = ColorTranslator.FromHtml("#ffffff");
-
+            
+            if(PC == "Dispo1")
+            {
+                PCPfad = @"C:\EDP\EDPLauncher\Konfiguration\Zusatzdateien\ELP1";
+            }
+            else if (PC == "Dispo2")
+            {
+                PCPfad = @"C:\EDP\EDPLauncher\Konfiguration\Zusatzdateien\ELP2";
+            }
+            else if (PC == "Lagekarte")
+            {
+                PCPfad = @"C:\EDP\EDPLauncher\Konfiguration\Zusatzdateien\Lagekarte";
+            }
+            else if (PC == "LdF")
+            {
+                PCPfad = @"C:\EDP\EDPLauncher\Konfiguration\Zusatzdateien\LdF";
+            }
+            else if(PC == "Admin")
+            {
+                PCPfad = @"C:\EDP\EDPLauncher\Konfiguration\Zusatzdateien\Admin";
+            }
+            else
+            {
+                MessageBox.Show("Fehler: PC nicht gefunden");
+            }
             string fullName = Environment.UserName;
             username = FormatUsername(fullName);
-            username += username + "*";
+            
             label_user.Text = "Es wird eingeloggt: " + username;
 
         }
 
+        string PCPfad;
+
         string ausgabe = @"C:\EDP\ELP\ELP.ini";
-        string standard = @"C:\EDP\EDPLauncher\Konfiguration\ELP_Backup.ini";
+       // string standard = @"C:\EDP\EDPLauncher\Konfiguration\ELP_Backup.ini";
         string edpExe = @"C:\EDP\ELP\ELP.exe";
+        
+        // Choose right path for PCName
+        
         string username;
         string fullName;
 
@@ -41,7 +71,8 @@ namespace EDPLauncher
             {
                 throw new ArgumentException("Der Name darf nicht leer sein.");
             }
-
+            
+            fullName = ReplaceUmlauts(fullName);
             // Den ersten Groﬂbuchstaben nach dem Vornamen finden
             int splitIndex = -1;
             for (int i = 1; i < fullName.Length; i++)
@@ -56,6 +87,7 @@ namespace EDPLauncher
             if (splitIndex == -1)
             {
                 return "Kein passender Benutzer gefunden!";
+              
             }
 
             // Vorname und Nachname trennen
@@ -63,22 +95,32 @@ namespace EDPLauncher
             string lastName = fullName.Substring(splitIndex);
 
             // Erster Buchstabe des Vornamens + Nachname
-            return char.ToLower(firstName[0]) + lastName.ToLower();
+            return char.ToLower(firstName[0]) + lastName.ToLower()+"*";
+        }
+
+        static string ReplaceUmlauts(string input)
+        {
+            return input.Replace("‰", "ae")
+                        .Replace("ˆ", "oe")
+                        .Replace("¸", "ue")
+                        .Replace("ƒ", "Ae")
+                        .Replace("÷", "Oe")
+                        .Replace("‹", "Ue");
         }
 
         private void button_prod_Click(object sender, EventArgs e)
         {
-            string system_ini = @"C:\EDP\EDPLauncher\Konfiguration\prod.ini";
+            string system_ini = PCPfad+@"\prod.ini";
             create_ini(system_ini);
         }
         private void button_not_Click(object sender, EventArgs e)
         {
-            string system_ini = @"C:\EDP\EDPLauncher\Konfiguration\not.ini";
+            string system_ini = PCPfad + @"\not.ini";
             create_ini(system_ini);
         }
         private void button_test_Click(object sender, EventArgs e)
         {
-            string system_ini = @"C:\EDP\EDPLauncher\Konfiguration\test.ini";
+            string system_ini = PCPfad + @"\test.ini";
             create_ini(system_ini);
         }
 
@@ -97,7 +139,7 @@ namespace EDPLauncher
 
                 // Inhalte zusammenf¸hren
                 Console.WriteLine("Inhalte werden zusammengef¸hrt...");
-                using (StreamWriter writer = new StreamWriter(ausgabe))
+                using (StreamWriter writer = new StreamWriter(ausgabe, false, Encoding.UTF8))
                 {
                     writer.WriteLine("[Autologon]");
                     writer.WriteLine("Benutzer=" + username);
@@ -138,13 +180,13 @@ namespace EDPLauncher
                 return;
             }
 
-            // STANDARD INI ERZEUGEN nach 25 Sekunden Wartezeit
+            /* STANDARD INI ERZEUGEN nach 25 Sekunden Wartezeit
             Thread.Sleep(25000);
             Console.WriteLine("Standard INI wird erstellt...");
             using (StreamWriter writer = new StreamWriter(ausgabe))
             {
                 writer.Write(File.ReadAllText(standard));
-            }
+            }*/
 
             Environment.Exit(0);
         }
