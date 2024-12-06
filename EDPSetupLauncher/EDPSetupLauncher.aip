@@ -26,7 +26,7 @@
     <ROW Property="AppLogoIcon" Value="applogo.png" MultiBuildValue="DefaultBuild:freundeskreis_rot.png" Type="1" MsiKey="AppLogoIcon"/>
     <ROW Property="AppLogoIconDark" Value="applogodark.png" MultiBuildValue="DefaultBuild:freundeskreis.png" Type="1" MsiKey="AppLogoIconDark"/>
     <ROW Property="Manufacturer" Value="Feuerwehr Stadt Bad Harzburg"/>
-    <ROW Property="ProductCode" Value="1033:{D12FF7C7-B662-4B44-8E8F-0EA2557CCE2D} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{CD3D0A70-8ADB-446F-B12F-749D1E4A23D3} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="EDPLauncher"/>
     <ROW Property="ProductVersion" Value="2.1.0.0" Options="4"/>
