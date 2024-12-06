@@ -45,6 +45,14 @@
     <ROW Section="1.0.0.4" Key="Description" Value="V1.0.0.4"/>
     <ROW Section="1.0.0.4" Key="Enhancement" Value="AutoCheck Update verbessert"/>
     <ROW Section="1.0.0.4" Key="AutoCloseApplication" Value="[APPDIR]EDPLauncher.exe|;;AlwaysRestart" ValueLocId="-"/>
+    <ROW Section="2.1.0.0" Key="Name" Value="EDPLauncher"/>
+    <ROW Section="2.1.0.0" Key="ProductVersion" Value="2.1.0.0" ValueLocId="-"/>
+    <ROW Section="2.1.0.0" Key="URL" Value="https://raw.githubusercontent.com/Louis1505/EDPLauncher/refs/heads/master/EDPLauncher/Updates/UpdateExe/EDPLauncherSetup.exe" ValueLocId="-"/>
+    <ROW Section="2.1.0.0" Key="Size" Value="UpdateExe\EDPLauncherSetup.exe" ValueLocId="-"/>
+    <ROW Section="2.1.0.0" Key="ServerFileName" Value="EDPLauncherSetup.exe" ValueLocId="-"/>
+    <ROW Section="2.1.0.0" Key="RegistryKey" Value="HKUD\Software\Feuerwehr Stadt Bad Harzburg\EDPLauncher\Version" ValueLocId="-"/>
+    <ROW Section="2.1.0.0" Key="Version" Value="2.1.0.0" ValueLocId="-"/>
+    <ROW Section="2.1.0.0" Key="AutoCloseApplication" Value="[APPDIR]EDPLauncher.exe|;;AlwaysRestart" ValueLocId="-"/>
     <ATTRIBUTE name="OutputFileName" value="update.txt"/>
     <ATTRIBUTE name="OutputFolder" value="."/>
   </COMPONENT>

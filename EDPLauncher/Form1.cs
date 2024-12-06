@@ -167,7 +167,7 @@ namespace EDPLauncher
 
                 // Inhalte zusammenführen
                 Console.WriteLine("Inhalte werden zusammengeführt...");
-                using (StreamWriter writer = new StreamWriter(ausgabe, false, Encoding.UTF8))
+                using (StreamWriter writer = new StreamWriter(ausgabe, false, new UTF8Encoding(false)))
                 {
                     writer.WriteLine("[Autologon]");
                     writer.WriteLine("Benutzer=" + username);
