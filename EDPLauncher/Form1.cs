@@ -11,7 +11,7 @@ namespace EDPLauncher
 {
     public partial class Form1 : Form
     {
-        public Form1(string PC)
+        public Form1()
         {
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#2f2f2f");
@@ -22,30 +22,7 @@ namespace EDPLauncher
             button_not.BackColor = ColorTranslator.FromHtml("#535353");
             button_not.ForeColor = ColorTranslator.FromHtml("#ffffff");
             
-            if(PC == "Dispo1")
-            {
-                PCPfad = @"C:\EDP\EDPLauncher\Konfiguration\Zusatzdateien\ELP1";
-            }
-            else if (PC == "Dispo2")
-            {
-                PCPfad = @"C:\EDP\EDPLauncher\Konfiguration\Zusatzdateien\ELP2";
-            }
-            else if (PC == "Lagekarte")
-            {
-                PCPfad = @"C:\EDP\EDPLauncher\Konfiguration\Zusatzdateien\Lagekarte";
-            }
-            else if (PC == "LdF")
-            {
-                PCPfad = @"C:\EDP\EDPLauncher\Konfiguration\Zusatzdateien\LdF";
-            }
-            else if(PC == "Admin")
-            {
-                PCPfad = @"C:\EDP\EDPLauncher\Konfiguration\Zusatzdateien\Admin";
-            }
-            else
-            {
-                MessageBox.Show("Fehler: PC nicht gefunden");
-            }
+            
             string fullName = Environment.UserName;
             username = FormatUsername(fullName);
             
@@ -53,7 +30,6 @@ namespace EDPLauncher
 
         }
 
-        string PCPfad;
 
         string ausgabe = @"C:\EDP\ELP\ELP.ini";
        // string standard = @"C:\EDP\EDPLauncher\Konfiguration\ELP_Backup.ini";
@@ -110,17 +86,17 @@ namespace EDPLauncher
 
         private void button_prod_Click(object sender, EventArgs e)
         {
-            string system_ini = PCPfad+@"\prod.ini";
+            string system_ini = @"C:\EDP\EDPLauncher\Konfiguration\prod.ini";
             create_ini(system_ini);
         }
         private void button_not_Click(object sender, EventArgs e)
         {
-            string system_ini = PCPfad + @"\not.ini";
+            string system_ini = @"C:\EDP\EDPLauncher\Konfiguration\not.ini";
             create_ini(system_ini);
         }
         private void button_test_Click(object sender, EventArgs e)
         {
-            string system_ini = PCPfad + @"\test.ini";
+            string system_ini = @"C:\EDP\EDPLauncher\Konfiguration\test.ini";
             create_ini(system_ini);
         }
 
