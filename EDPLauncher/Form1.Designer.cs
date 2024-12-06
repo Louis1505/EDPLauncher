@@ -35,6 +35,7 @@
             pictureBox1 = new PictureBox();
             label_user = new Label();
             btn_close = new Button();
+            comboBox1 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -96,11 +97,11 @@
             // label_user
             // 
             label_user.AutoSize = true;
-            label_user.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label_user.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label_user.ForeColor = Color.White;
-            label_user.Location = new Point(37, 108);
+            label_user.Location = new Point(13, 108);
             label_user.Name = "label_user";
-            label_user.Size = new Size(33, 17);
+            label_user.Size = new Size(29, 15);
             label_user.TabIndex = 7;
             label_user.Text = "user";
             // 
@@ -111,7 +112,7 @@
             btn_close.FlatStyle = FlatStyle.Flat;
             btn_close.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
             btn_close.ForeColor = Color.Red;
-            btn_close.Location = new Point(448, -8);
+            btn_close.Location = new Point(451, -14);
             btn_close.Name = "btn_close";
             btn_close.Size = new Size(53, 57);
             btn_close.TabIndex = 8;
@@ -120,6 +121,22 @@
             btn_close.UseVisualStyleBackColor = true;
             btn_close.Click += btn_close_Click;
             // 
+            // comboBox1
+            // 
+            comboBox1.BackColor = SystemColors.InfoText;
+            comboBox1.DrawMode = DrawMode.OwnerDrawFixed;
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FlatStyle = FlatStyle.Flat;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Flächenlage", "Lokale Lage" });
+            comboBox1.Location = new Point(346, 107);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(130, 24);
+            comboBox1.TabIndex = 9;
+            comboBox1.DrawItem += comboBox1_DrawItem;
+            comboBox1.DropDown += comboBox1_DropDown;
+            comboBox1.SelectedValueChanged += comboBox1_SelectedValueChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -127,6 +144,7 @@
             BackColor = SystemColors.AppWorkspace;
             BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(488, 241);
+            Controls.Add(comboBox1);
             Controls.Add(btn_close);
             Controls.Add(label_user);
             Controls.Add(pictureBox1);
@@ -138,6 +156,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "EDP Launcher";
+            MouseDown += Form1_MouseDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -151,5 +170,6 @@
         private PictureBox pictureBox1;
         private Label label_user;
         private Button btn_close;
+        private ComboBox comboBox1;
     }
 }

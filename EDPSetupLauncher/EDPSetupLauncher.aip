@@ -26,10 +26,10 @@
     <ROW Property="AppLogoIcon" Value="applogo.png" MultiBuildValue="DefaultBuild:freundeskreis_rot.png" Type="1" MsiKey="AppLogoIcon"/>
     <ROW Property="AppLogoIconDark" Value="applogodark.png" MultiBuildValue="DefaultBuild:freundeskreis.png" Type="1" MsiKey="AppLogoIconDark"/>
     <ROW Property="Manufacturer" Value="Feuerwehr Stadt Bad Harzburg"/>
-    <ROW Property="ProductCode" Value="1033:{317A6D16-F88E-40DE-9455-7B1D28F0C906} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{85D794FF-B2CD-4C6A-AE92-A6E148198C6A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="EDPLauncher"/>
-    <ROW Property="ProductVersion" Value="1.1.1.0" Options="4"/>
+    <ROW Property="ProductVersion" Value="2.0.0.0" Options="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{58CC8BDD-AA02-45AD-B00E-A084DEC3C7CA}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -66,14 +66,14 @@
     <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_EDPLauncher.deps.json" ComponentId="{CE8D622B-C73A-4CCC-808B-2AAC14F379CC}" Directory_="APPDIR" Attributes="0" KeyPath="EDPLauncher.deps.json" Type="0"/>
     <ROW Component="APPDIR" ComponentId="{B17BAF5D-B3D6-436E-8AFA-3DDBA205887A}" Directory_="APPDIR" Attributes="0"/>
     <ROW Component="E92D3665B5E468A8661F6547C8C142C" ComponentId="{5B80AEF7-32CC-414C-A208-2FC3922AB70D}" Directory_="APPDIR" Attributes="4" KeyPath="E92D3665B5E468A8661F6547C8C142C" Options="2"/>
-    <ROW Component="EDPLauncher.ini" ComponentId="{A9BDDDED-7F8B-44CA-83D8-F78B51D234A3}" Directory_="Konfiguration_Dir" Attributes="0" KeyPath="not.ini_5" Type="0"/>
     <ROW Component="ProductInformation" ComponentId="{9B323C4F-E07A-49C2-B445-114E66143F7B}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
     <ROW Component="Updates" ComponentId="{3D94ECA3-2A44-4D9D-B5CB-782D97A1BD4D}" Directory_="Updates_Dir" Attributes="0"/>
-    <ROW Component="not.ini" ComponentId="{2656997A-B999-4DD9-85F2-EBA484114958}" Directory_="Admin_Dir" Attributes="0" KeyPath="not.ini" Type="0"/>
-    <ROW Component="not.ini_1" ComponentId="{C64078DB-4283-4BE2-A342-DF62048E0A07}" Directory_="ELP1_Dir" Attributes="0" KeyPath="not.ini_1" Type="0"/>
-    <ROW Component="not.ini_2" ComponentId="{E60DC554-8FB3-4F02-8263-97F8B61656F6}" Directory_="ELP2_Dir" Attributes="0" KeyPath="not.ini_2" Type="0"/>
-    <ROW Component="not.ini_3" ComponentId="{D9533B45-3B0B-4079-8C88-A774A965BF90}" Directory_="Lagekarte_Dir" Attributes="0" KeyPath="not.ini_3" Type="0"/>
-    <ROW Component="not.ini_4" ComponentId="{CC746E40-9FF2-4E1F-AF89-5699B949C369}" Directory_="LdF_Dir" Attributes="0" KeyPath="not.ini_4" Type="0"/>
+    <ROW Component="lage.ini" ComponentId="{62928970-DA71-4D1B-893E-D47240F252F2}" Directory_="Konfiguration_Dir" Attributes="0" KeyPath="lage.ini" Type="0"/>
+    <ROW Component="not.ini" ComponentId="{7F967808-B518-48D0-9B16-E509FD589551}" Directory_="Admin_Dir" Attributes="0" KeyPath="not.ini_6" Type="0"/>
+    <ROW Component="not.ini_1" ComponentId="{51058B90-426D-472B-9B85-D6DDEFD63C3E}" Directory_="ELP1_Dir" Attributes="0" KeyPath="not.ini_7" Type="0"/>
+    <ROW Component="not.ini_2" ComponentId="{A79AA1CD-6BE5-4571-A4A9-8815ACA268BB}" Directory_="ELP2_Dir" Attributes="0" KeyPath="not.ini_8" Type="0"/>
+    <ROW Component="not.ini_3" ComponentId="{E9608627-96E8-49AF-B90A-B4834F16640B}" Directory_="Lagekarte_Dir" Attributes="0" KeyPath="not.ini_9" Type="0"/>
+    <ROW Component="not.ini_4" ComponentId="{547C6E90-4D57-401C-AF76-88082928DCFD}" Directory_="LdF_Dir" Attributes="0" KeyPath="not.ini_10" Type="0"/>
     <ROW Component="updater.exe" ComponentId="{F6E87194-709E-4630-A50E-82A16DF5A345}" Directory_="APPDIR" Attributes="0" KeyPath="updater.exe"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
@@ -91,24 +91,23 @@
     <ROW File="System.DirectoryServices.AccountManagement.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_EDPLauncher.deps.json" FileName="SYSTEM~1.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.DirectoryServices.AccountManagement.dll]" Attributes="0" SourcePath="..\EDPLauncher\bin\Release\net6.0-windows\publish\System.DirectoryServices.AccountManagement.dll" SelfReg="false"/>
     <ROW File="System.Formats.Asn1.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_EDPLauncher.deps.json" FileName="SYSTEM~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Formats.Asn1.dll]" Attributes="0" SourcePath="..\EDPLauncher\bin\Release\net6.0-windows\publish\System.Formats.Asn1.dll" SelfReg="false"/>
     <ROW File="updater.exe" Component_="updater.exe" FileName="EDPLAU~2.EXE|EDPLauncherUpdate.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="&lt;AI_STUBS&gt;updater.exe" SelfReg="false" DigSign="true"/>
-    <ROW File="not.ini" Component_="not.ini" FileName="not.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\Admin\not.ini" SelfReg="false"/>
-    <ROW File="prod.ini" Component_="not.ini" FileName="prod.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\Admin\prod.ini" SelfReg="false"/>
-    <ROW File="test.ini" Component_="not.ini" FileName="test.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\Admin\test.ini" SelfReg="false"/>
-    <ROW File="not.ini_1" Component_="not.ini_1" FileName="not.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\ELP1\not.ini" SelfReg="false"/>
-    <ROW File="prod.ini_1" Component_="not.ini_1" FileName="prod.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\ELP1\prod.ini" SelfReg="false"/>
-    <ROW File="test.ini_1" Component_="not.ini_1" FileName="test.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\ELP1\test.ini" SelfReg="false"/>
-    <ROW File="not.ini_2" Component_="not.ini_2" FileName="not.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\ELP2\not.ini" SelfReg="false"/>
-    <ROW File="prod.ini_2" Component_="not.ini_2" FileName="prod.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\ELP2\prod.ini" SelfReg="false"/>
-    <ROW File="test.ini_2" Component_="not.ini_2" FileName="test.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\ELP2\test.ini" SelfReg="false"/>
-    <ROW File="not.ini_3" Component_="not.ini_3" FileName="not.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\Lagekarte\not.ini" SelfReg="false"/>
-    <ROW File="prod.ini_3" Component_="not.ini_3" FileName="prod.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\Lagekarte\prod.ini" SelfReg="false"/>
-    <ROW File="test.ini_3" Component_="not.ini_3" FileName="test.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\Lagekarte\test.ini" SelfReg="false"/>
-    <ROW File="not.ini_4" Component_="not.ini_4" FileName="not.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\LdF\not.ini" SelfReg="false"/>
-    <ROW File="prod.ini_4" Component_="not.ini_4" FileName="prod.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\LdF\prod.ini" SelfReg="false"/>
-    <ROW File="test.ini_4" Component_="not.ini_4" FileName="test.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\LdF\test.ini" SelfReg="false"/>
-    <ROW File="not.ini_5" Component_="EDPLauncher.ini" FileName="not.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\Admin\not.ini" SelfReg="false"/>
-    <ROW File="prod.ini_5" Component_="EDPLauncher.ini" FileName="prod.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\Admin\prod.ini" SelfReg="false"/>
-    <ROW File="test.ini_5" Component_="EDPLauncher.ini" FileName="test.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\Admin\test.ini" SelfReg="false"/>
+    <ROW File="lage.ini" Component_="lage.ini" FileName="lage.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\lage.ini" SelfReg="false"/>
+    <ROW File="lokal.ini" Component_="lage.ini" FileName="lokal.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\lokal.ini" SelfReg="false"/>
+    <ROW File="not.ini_6" Component_="not.ini" FileName="not.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\Admin\not.ini" SelfReg="false"/>
+    <ROW File="prod.ini_6" Component_="not.ini" FileName="prod.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\Admin\prod.ini" SelfReg="false"/>
+    <ROW File="test.ini_6" Component_="not.ini" FileName="test.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\Admin\test.ini" SelfReg="false"/>
+    <ROW File="not.ini_7" Component_="not.ini_1" FileName="not.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\ELP1\not.ini" SelfReg="false"/>
+    <ROW File="prod.ini_7" Component_="not.ini_1" FileName="prod.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\ELP1\prod.ini" SelfReg="false"/>
+    <ROW File="test.ini_7" Component_="not.ini_1" FileName="test.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\ELP1\test.ini" SelfReg="false"/>
+    <ROW File="not.ini_8" Component_="not.ini_2" FileName="not.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\ELP2\not.ini" SelfReg="false"/>
+    <ROW File="prod.ini_8" Component_="not.ini_2" FileName="prod.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\ELP2\prod.ini" SelfReg="false"/>
+    <ROW File="test.ini_8" Component_="not.ini_2" FileName="test.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\ELP2\test.ini" SelfReg="false"/>
+    <ROW File="not.ini_9" Component_="not.ini_3" FileName="not.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\Lagekarte\not.ini" SelfReg="false"/>
+    <ROW File="prod.ini_9" Component_="not.ini_3" FileName="prod.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\Lagekarte\prod.ini" SelfReg="false"/>
+    <ROW File="test.ini_9" Component_="not.ini_3" FileName="test.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\Lagekarte\test.ini" SelfReg="false"/>
+    <ROW File="not.ini_10" Component_="not.ini_4" FileName="not.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\LdF\not.ini" SelfReg="false"/>
+    <ROW File="prod.ini_10" Component_="not.ini_4" FileName="prod.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\LdF\prod.ini" SelfReg="false"/>
+    <ROW File="test.ini_10" Component_="not.ini_4" FileName="test.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\LdF\test.ini" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrapperUISequenceComponent">
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="249"/>
@@ -277,7 +276,7 @@
     <ROW Feature_="MainFeature" Component_="updater.exe"/>
     <ROW Feature_="E92D3665B5E468A8661F6547C8C142C" Component_="E92D3665B5E468A8661F6547C8C142C"/>
     <ROW Feature_="MainFeature" Component_="Updates"/>
-    <ROW Feature_="MainFeature" Component_="EDPLauncher.ini"/>
+    <ROW Feature_="MainFeature" Component_="lage.ini"/>
     <ROW Feature_="MainFeature" Component_="not.ini"/>
     <ROW Feature_="MainFeature" Component_="not.ini_1"/>
     <ROW Feature_="MainFeature" Component_="not.ini_2"/>
