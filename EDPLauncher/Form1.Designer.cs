@@ -35,8 +35,13 @@
             pictureBox1 = new PictureBox();
             label_user = new Label();
             btn_close = new Button();
-            comboBox1 = new ComboBox();
+            comboBox_funktion = new ComboBox();
+            comboBox_anordnung = new ComboBox();
+            label1 = new Label();
+            label2 = new Label();
+            groupBox1 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // button_prod
@@ -46,7 +51,7 @@
             button_prod.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             button_prod.ForeColor = Color.FromArgb(64, 64, 64);
             button_prod.ImageAlign = ContentAlignment.TopCenter;
-            button_prod.Location = new Point(14, 183);
+            button_prod.Location = new Point(13, 286);
             button_prod.Margin = new Padding(3, 4, 3, 4);
             button_prod.Name = "button_prod";
             button_prod.Size = new Size(155, 123);
@@ -61,10 +66,10 @@
             button_not.FlatStyle = FlatStyle.Flat;
             button_not.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             button_not.ForeColor = Color.FromArgb(64, 64, 64);
-            button_not.Location = new Point(395, 183);
+            button_not.Location = new Point(479, 286);
             button_not.Margin = new Padding(3, 4, 3, 4);
             button_not.Name = "button_not";
-            button_not.Size = new Size(147, 123);
+            button_not.Size = new Size(155, 123);
             button_not.TabIndex = 4;
             button_not.Text = "EDP\r\nNot\r\n";
             button_not.UseVisualStyleBackColor = true;
@@ -77,10 +82,10 @@
             button_test.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             button_test.ForeColor = Color.FromArgb(64, 64, 64);
             button_test.ImageAlign = ContentAlignment.TopCenter;
-            button_test.Location = new Point(205, 183);
+            button_test.Location = new Point(246, 286);
             button_test.Margin = new Padding(3, 4, 3, 4);
             button_test.Name = "button_test";
-            button_test.Size = new Size(147, 123);
+            button_test.Size = new Size(155, 123);
             button_test.TabIndex = 5;
             button_test.Text = "EDP\r\nTest";
             button_test.UseVisualStyleBackColor = true;
@@ -89,10 +94,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(42, 16);
+            pictureBox1.Location = new Point(51, 1);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(493, 103);
+            pictureBox1.Size = new Size(538, 119);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
@@ -100,14 +105,15 @@
             // 
             // label_user
             // 
-            label_user.AutoSize = true;
+            label_user.BackColor = SystemColors.AppWorkspace;
             label_user.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label_user.ForeColor = Color.White;
-            label_user.Location = new Point(15, 144);
+            label_user.Location = new Point(51, 124);
             label_user.Name = "label_user";
-            label_user.Size = new Size(36, 20);
+            label_user.Size = new Size(538, 38);
             label_user.TabIndex = 7;
             label_user.Text = "user";
+            label_user.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btn_close
             // 
@@ -116,7 +122,7 @@
             btn_close.FlatStyle = FlatStyle.Flat;
             btn_close.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
             btn_close.ForeColor = Color.Red;
-            btn_close.Location = new Point(515, -19);
+            btn_close.Location = new Point(595, -16);
             btn_close.Margin = new Padding(3, 4, 3, 4);
             btn_close.Name = "btn_close";
             btn_close.Size = new Size(64, 76);
@@ -126,23 +132,75 @@
             btn_close.UseVisualStyleBackColor = true;
             btn_close.Click += btn_close_Click;
             // 
-            // comboBox1
+            // comboBox_funktion
             // 
-            comboBox1.BackColor = SystemColors.InfoText;
-            comboBox1.DrawMode = DrawMode.OwnerDrawFixed;
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FlatStyle = FlatStyle.Flat;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Funktion manuell wählen", "Disponent 1", "Disponent 2", "Lagekarte", "LdF", "FuehrungAss", "Einsatzleiter", "16-01", "16-02" });
-            comboBox1.Location = new Point(395, 143);
-            comboBox1.Margin = new Padding(3, 4, 3, 4);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(148, 28);
-            comboBox1.TabIndex = 9;
-            comboBox1.DrawItem += comboBox1_DrawItem;
-            comboBox1.DropDown += comboBox1_DropDown;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
-            comboBox1.SelectedValueChanged += comboBox1_SelectedValueChanged;
+            comboBox_funktion.BackColor = SystemColors.InfoText;
+            comboBox_funktion.DrawMode = DrawMode.OwnerDrawFixed;
+            comboBox_funktion.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_funktion.FlatStyle = FlatStyle.Flat;
+            comboBox_funktion.FormattingEnabled = true;
+            comboBox_funktion.Items.AddRange(new object[] { "Funktion manuell wählen", "Disponent 1", "Disponent 2", "Lagekarte", "LdF", "FuehrungAss", "Einsatzleiter", "16-01", "16-02" });
+            comboBox_funktion.Location = new Point(10, 57);
+            comboBox_funktion.Margin = new Padding(3, 4, 3, 4);
+            comboBox_funktion.Name = "comboBox_funktion";
+            comboBox_funktion.Size = new Size(268, 28);
+            comboBox_funktion.TabIndex = 9;
+            comboBox_funktion.DrawItem += comboBox1_DrawItem;
+            comboBox_funktion.DropDown += comboBox1_DropDown;
+            comboBox_funktion.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            comboBox_funktion.SelectedValueChanged += comboBox1_SelectedValueChanged;
+            // 
+            // comboBox_anordnung
+            // 
+            comboBox_anordnung.BackColor = SystemColors.InfoText;
+            comboBox_anordnung.DrawMode = DrawMode.OwnerDrawFixed;
+            comboBox_anordnung.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_anordnung.FlatStyle = FlatStyle.Flat;
+            comboBox_anordnung.FormattingEnabled = true;
+            comboBox_anordnung.Items.AddRange(new object[] { "Anordnung lokale Lage", "Anordnung Flächenlage" });
+            comboBox_anordnung.Location = new Point(284, 57);
+            comboBox_anordnung.Margin = new Padding(3, 4, 3, 4);
+            comboBox_anordnung.Name = "comboBox_anordnung";
+            comboBox_anordnung.Size = new Size(268, 28);
+            comboBox_anordnung.TabIndex = 10;
+            // 
+            // label1
+            // 
+            label1.BackColor = SystemColors.AppWorkspace;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(10, 15);
+            label1.Name = "label1";
+            label1.Size = new Size(268, 38);
+            label1.TabIndex = 11;
+            label1.Text = "Funktion manuell wählen";
+            label1.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // label2
+            // 
+            label2.BackColor = SystemColors.AppWorkspace;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(284, 15);
+            label2.Name = "label2";
+            label2.Size = new Size(268, 38);
+            label2.TabIndex = 12;
+            label2.Text = "Fensteranordnung manuell wählen";
+            label2.TextAlign = ContentAlignment.TopCenter;
+            label2.Click += label2_Click;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(comboBox_anordnung);
+            groupBox1.Controls.Add(comboBox_funktion);
+            groupBox1.FlatStyle = FlatStyle.Flat;
+            groupBox1.Location = new Point(37, 174);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(566, 105);
+            groupBox1.TabIndex = 13;
+            groupBox1.TabStop = false;
             // 
             // Form1
             // 
@@ -150,8 +208,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
             BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(558, 321);
-            Controls.Add(comboBox1);
+            ClientSize = new Size(646, 420);
+            Controls.Add(groupBox1);
             Controls.Add(btn_close);
             Controls.Add(label_user);
             Controls.Add(pictureBox1);
@@ -166,6 +224,7 @@
             Text = "EDP Launcher";
             MouseDown += Form1_MouseDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -178,6 +237,10 @@
         private PictureBox pictureBox1;
         private Label label_user;
         private Button btn_close;
-        private ComboBox comboBox1;
+        private ComboBox comboBox_funktion;
+        private ComboBox comboBox_anordnung;
+        private Label label1;
+        private Label label2;
+        private GroupBox groupBox1;
     }
 }

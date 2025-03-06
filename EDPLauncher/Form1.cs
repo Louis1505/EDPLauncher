@@ -20,14 +20,15 @@ namespace EDPLauncher
             button_prod.ForeColor = ColorTranslator.FromHtml("#ffffff");
             button_test.BackColor = ColorTranslator.FromHtml("#535353");
             button_test.ForeColor = ColorTranslator.FromHtml("#ffffff");
-            comboBox1.BackColor = ColorTranslator.FromHtml("#535353");
-            comboBox1.ForeColor = ColorTranslator.FromHtml("#ffffff");
-            comboBox1.DrawMode = DrawMode.OwnerDrawFixed;
-            comboBox1.DrawItem += new DrawItemEventHandler(comboBox1_DrawItem);
-            comboBox1.DropDown += new EventHandler(comboBox1_DropDown);
+            comboBox_funktion.BackColor = ColorTranslator.FromHtml("#535353");
+            comboBox_funktion.ForeColor = ColorTranslator.FromHtml("#ffffff");
+            comboBox_funktion.DrawMode = DrawMode.OwnerDrawFixed;
+            comboBox_funktion.DrawItem += new DrawItemEventHandler(comboBox1_DrawItem);
+            comboBox_funktion.DropDown += new EventHandler(comboBox1_DropDown);
             button_not.BackColor = ColorTranslator.FromHtml("#535353");
             button_not.ForeColor = ColorTranslator.FromHtml("#ffffff");
-            comboBox1.Text = "Funktion manuell wählen";
+            comboBox_funktion.Text = "Funktion manuell wählen";
+            comboBox_anordnung.Text = "Anordnung lokale Lage";
 
             string fullName = Environment.UserName;
             username = FormatUsername(fullName);
@@ -172,14 +173,22 @@ namespace EDPLauncher
                     writer.WriteLine("[Autologon]");
                     writer.WriteLine("Benutzer=" + username);
                     writer.WriteLine("Passwort=7b3XshGnPqhCxg89EiCE");
-                    writer.WriteLine();
+                    if (comboBox_anordnung.Text == "Anordnung lokale Lage")
+                    {
+                        writer.WriteLine("Anordnung=2");
+                    }
+                    else
+                    {
+                        writer.WriteLine("Anordnung=1");
+
+                    }
                     if (funktion_Manuell == "false")
                     {
                         writer.Write(File.ReadAllText(system_ini));
                     }
                     else
                     {
-                        writer.WriteLine("Funktion=" + comboBox1.Text);
+                        writer.WriteLine("Funktion=" + comboBox_funktion.Text);
                         string[] lines = File.ReadAllLines(system_ini);
                         foreach (string line in lines.Skip(1))
                         {
@@ -295,6 +304,11 @@ namespace EDPLauncher
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             funktion_Manuell = "true";
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
