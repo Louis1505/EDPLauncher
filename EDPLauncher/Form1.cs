@@ -55,7 +55,7 @@ namespace EDPLauncher
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
 
-        string funktion_Manuell = "false";
+        
 
         string ausgabe = @"C:\EDP\ELP\ELP.ini";
         string admin_ausgabe = @"C:\EDP\editor\editor.ini";
@@ -190,7 +190,7 @@ namespace EDPLauncher
                         writer.WriteLine("Anordnung=1");
 
                     }
-                    if (funktion_Manuell == "false")
+                    if (comboBox_funktion.Text == "Funktion manuell wählen")
                     {
                         writer.Write(File.ReadAllText(system_ini));
                     }
@@ -306,12 +306,12 @@ namespace EDPLauncher
 
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
-            funktion_Manuell = "true";
+            //funktion_Manuell = "true";
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            funktion_Manuell = "true";
+            //funktion_Manuell = "true";
         }
 
         private void label2_Click(object sender, EventArgs e)
