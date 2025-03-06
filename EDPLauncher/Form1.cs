@@ -16,6 +16,9 @@ namespace EDPLauncher
         {
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#2f2f2f");
+            label1.BackColor = ColorTranslator.FromHtml("#2f2f2f");
+            label2.BackColor = ColorTranslator.FromHtml("#2f2f2f");
+            label_user.BackColor = ColorTranslator.FromHtml("#2f2f2f");
             button_prod.BackColor = ColorTranslator.FromHtml("#8e2720");
             button_prod.ForeColor = ColorTranslator.FromHtml("#ffffff");
             button_test.BackColor = ColorTranslator.FromHtml("#535353");
@@ -25,6 +28,11 @@ namespace EDPLauncher
             comboBox_funktion.DrawMode = DrawMode.OwnerDrawFixed;
             comboBox_funktion.DrawItem += new DrawItemEventHandler(comboBox1_DrawItem);
             comboBox_funktion.DropDown += new EventHandler(comboBox1_DropDown);
+            comboBox_anordnung.BackColor = ColorTranslator.FromHtml("#535353");
+            comboBox_anordnung.ForeColor = ColorTranslator.FromHtml("#ffffff");
+            comboBox_anordnung.DrawMode = DrawMode.OwnerDrawFixed;
+            comboBox_anordnung.DrawItem += new DrawItemEventHandler(comboBox1_DrawItem);
+            comboBox_anordnung.DropDown += new EventHandler(comboBox1_DropDown);
             button_not.BackColor = ColorTranslator.FromHtml("#535353");
             button_not.ForeColor = ColorTranslator.FromHtml("#ffffff");
             comboBox_funktion.Text = "Funktion manuell wählen";

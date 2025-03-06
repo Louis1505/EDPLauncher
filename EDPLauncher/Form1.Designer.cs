@@ -105,7 +105,7 @@
             // 
             // label_user
             // 
-            label_user.BackColor = SystemColors.AppWorkspace;
+            label_user.BackColor = SystemColors.ButtonShadow;
             label_user.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label_user.ForeColor = Color.White;
             label_user.Location = new Point(51, 124);
@@ -169,9 +169,9 @@
             label1.BackColor = SystemColors.AppWorkspace;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(10, 15);
+            label1.Location = new Point(10, 26);
             label1.Name = "label1";
-            label1.Size = new Size(268, 38);
+            label1.Size = new Size(268, 27);
             label1.TabIndex = 11;
             label1.Text = "Funktion manuell wählen";
             label1.TextAlign = ContentAlignment.TopCenter;
@@ -181,9 +181,9 @@
             label2.BackColor = SystemColors.AppWorkspace;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(284, 15);
+            label2.Location = new Point(284, 26);
             label2.Name = "label2";
-            label2.Size = new Size(268, 38);
+            label2.Size = new Size(268, 27);
             label2.TabIndex = 12;
             label2.Text = "Fensteranordnung manuell wählen";
             label2.TextAlign = ContentAlignment.TopCenter;
@@ -196,11 +196,13 @@
             groupBox1.Controls.Add(comboBox_anordnung);
             groupBox1.Controls.Add(comboBox_funktion);
             groupBox1.FlatStyle = FlatStyle.Flat;
+            groupBox1.ForeColor = Color.White;
             groupBox1.Location = new Point(37, 174);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(566, 105);
             groupBox1.TabIndex = 13;
             groupBox1.TabStop = false;
+            groupBox1.Text = "Manuelle Optionen";
             // 
             // Form1
             // 
