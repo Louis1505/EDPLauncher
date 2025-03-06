@@ -1,20 +1,108 @@
 ;aiu;
 
+[2.2.0.0]
+Name = EDPLauncher
+ProductVersion = 2.2.0.0
+URL = https://raw.githubusercontent.com/Louis1505/EDPLauncher/refs/heads/master/EDPLauncher/Updates/UpdateExe/EDPLauncherSetup.exe
+Size = 67003073
+ServerFileName = EDPLauncherSetup.exe
+RegistryKey = HKUD\Software\Feuerwehr Stadt Bad Harzburg\EDPLauncher\Version
+Version = 2.2.0.0
+Feature = Manuelles auswählen einer Funktion
+Enhancement = Für Datenversorgung wird auch eine .ini angelegt
+AutoCloseApplication = [APPDIR]EDPLauncher.exe|;;AlwaysRestart
+
 [2.1.0.0]
 Name = EDPLauncher
 ProductVersion = 2.1.0.0
 URL = https://raw.githubusercontent.com/Louis1505/EDPLauncher/refs/heads/master/EDPLauncher/Updates/UpdateExe/EDPLauncherSetup.exe
-Size = 66967991
+Size = 67003073
 ServerFileName = EDPLauncherSetup.exe
 RegistryKey = HKUD\Software\Feuerwehr Stadt Bad Harzburg\EDPLauncher\Version
 Version = 2.1.0.0
+AutoCloseApplication = [APPDIR]EDPLauncher.exe|;;AlwaysRestart
+
+[2.0.0.0]
+Name = EDPLauncher
+ProductVersion = 2.0.0.0
+URL = https://raw.githubusercontent.com/Louis1505/EDPLauncher/refs/heads/master/EDPLauncher/Updates/UpdateExe/EDPLauncherSetup.exe
+Size = 67003073
+ServerFileName = EDPLauncherSetup.exe
+RegistryKey = HKUD\Software\Feuerwehr Stadt Bad Harzburg\EDPLauncher\Version
+Version = 2.0.0.0
+AutoCloseApplication = [APPDIR]EDPLauncher.exe|;;AlwaysRestart
+
+[1.1.1.0]
+Name = EDPLauncher
+ProductVersion = 1.1.1.0
+URL = https://raw.githubusercontent.com/Louis1505/EDPLauncher/refs/heads/master/EDPLauncher/Updates/UpdateExe/EDPLauncherSetup.exe
+Size = 67003073
+ServerFileName = EDPLauncherSetup.exe
+RegistryKey = HKUD\Software\Feuerwehr Stadt Bad Harzburg\EDPLauncher\Version
+Version = 1.1.1.0
+Enhancement = Updatelogik entfernt
+AutoCloseApplication = [APPDIR]EDPLauncher.exe|;;AlwaysRestart
+
+[1.1.0.0]
+Name = EDPLauncher
+ProductVersion = 1.1.0.0
+URL = https://raw.githubusercontent.com/Louis1505/EDPLauncher/refs/heads/master/EDPLauncher/Updates/UpdateExe/EDPLauncherSetup.exe
+Size = 67003073
+ServerFileName = EDPLauncherSetup.exe
+RegistryKey = HKUD\Software\Feuerwehr Stadt Bad Harzburg\EDPLauncher\Version
+Version = 1.1.0.0
+AutoCloseApplication = [APPDIR]EDPLauncher.exe|;;AlwaysRestart
+
+[1.0.4.0]
+Name = EDPLauncher
+ProductVersion = 1.0.4.0
+URL = https://raw.githubusercontent.com/Louis1505/EDPLauncher/refs/heads/master/EDPLauncher/Updates/UpdateExe/EDPLauncherSetup.exe
+Size = 67003073
+ServerFileName = EDPLauncherSetup.exe
+RegistryKey = HKUD\Software\Feuerwehr Stadt Bad Harzburg\EDPLauncher\Version
+Version = 1.0.4.0
+BugFix = Fixed wrong username - missing *
+AutoCloseApplication = [APPDIR]EDPLauncher.exe|;;AlwaysRestart
+
+[1.0.3.0]
+Name = EDPLauncher
+ProductVersion = 1.0.3.0
+URL = https://raw.githubusercontent.com/Louis1505/EDPLauncher/refs/heads/master/EDPLauncher/Updates/UpdateExe/EDPLauncherSetup.exe
+Size = 67003073
+ServerFileName = EDPLauncherSetup.exe
+RegistryKey = HKUD\Software\Feuerwehr Stadt Bad Harzburg\EDPLauncher\Version
+Version = 1.0.3.0
+Feature = Close App Button (nur funktionell)
+Enhancement = Auto Update fertiggestellt
+AutoCloseApplication = [APPDIR]EDPLauncher.exe|;;AlwaysRestart
+
+[1.0.2.0]
+Name = EDPLauncher
+ProductVersion = 1.0.2.0
+URL = https://raw.githubusercontent.com/Louis1505/EDPLauncher/refs/heads/master/EDPLauncher/Updates/UpdateExe/EDPLauncherSetup.exe
+Size = 67003073
+ServerFileName = EDPLauncherSetup.exe
+RegistryKey = HKUD\Software\Feuerwehr Stadt Bad Harzburg\EDPLauncher\Version
+Version = 1.0.2.0
+Enhancement = AutoCheck Update verbessert
+AutoCloseApplication = [APPDIR]EDPLauncher.exe|;;AlwaysRestart
+
+[1.0.1.0]
+Name = EDPLauncher
+ProductVersion = 1.0.1.0
+URL = https://raw.githubusercontent.com/Louis1505/EDPLauncher/refs/heads/master/EDPLauncher/Updates/UpdateExe/EDPLauncherSetup.exe
+Size = 67003073
+ServerFileName = EDPLauncherSetup.exe
+RegistryKey = HKUD\Software\Feuerwehr Stadt Bad Harzburg\EDPLauncher\Version
+Version = 1.0.1.0
+Enhancement = AutoCheck Update verbessert
 AutoCloseApplication = [APPDIR]EDPLauncher.exe|;;AlwaysRestart
 
 [1.0.0.4]
 Name = EDPLauncher
 ProductVersion = 1.0.0.4
 URL = https://raw.githubusercontent.com/Louis1505/EDPLauncher/refs/heads/master/EDPLauncher/Updates/UpdateExe/EDPLauncherSetup.exe
-Size = 66967991
+Size = 67003073
 ServerFileName = EDPLauncherSetup.exe
 RegistryKey = HKUD\Software\Feuerwehr Stadt Bad Harzburg\EDPLauncher\Version
 Version = 1.0.0.4
@@ -24,24 +112,24 @@ AutoCloseApplication = [APPDIR]EDPLauncher.exe|;;AlwaysRestart
 
 [1.0.0.2]
 Name = EDPLauncher
-ProductVersion = 1.0.0.2
+ProductVersion = 1.0.0.4
 URL = https://raw.githubusercontent.com/Louis1505/EDPLauncher/refs/heads/master/EDPLauncher/Updates/UpdateExe/EDPLauncherSetup.exe
-Size = 66967991
+Size = 67003073
 ServerFileName = EDPLauncherSetup.exe
 RegistryKey = HKUD\Software\Feuerwehr Stadt Bad Harzburg\EDPLauncher\Version
-Version = 1.0.0.2
+Version = 1.0.0.4
 Description = V1.0.0.2
 Enhancement = AutoCheck Update verbessert
 AutoCloseApplication = [APPDIR]EDPLauncher.exe|;;AlwaysRestart
 
 [1.0.0.1]
 Name = EDPLauncher
-ProductVersion = 1.0.0.1
+ProductVersion = 1.0.0.4
 URL = https://raw.githubusercontent.com/Louis1505/EDPLauncher/refs/heads/master/EDPLauncher/Updates/UpdateExe/EDPLauncherSetup.exe
-Size = 66967991
+Size = 67003073
 ServerFileName = EDPLauncherSetup.exe
 RegistryKey = HKUD\Software\Feuerwehr Stadt Bad Harzburg\EDPLauncher\Version
-Version = 1.0.0.1
+Version = 1.0.0.4
 Description = V1.0.0.1
 Feature = AutoCheck Update
 Enhancement = Fixed No User Sign
@@ -49,11 +137,11 @@ AutoCloseApplication = [APPDIR]EDPLauncher.exe|;;AlwaysRestart
 
 [1.0.0.0]
 Name = EDPLauncher
-ProductVersion = 1.0.0.0
+ProductVersion = 1.0.0.4
 URL = https://github.com/Louis1505/EDPLauncher/blob/master/EDPLauncher/Updates/UpdateExe/EDPLauncherSetup.exe
-Size = 66967991
+Size = 67003073
 ServerFileName = EDPLauncherSetup.exe
 RegistryKey = HKUD\Software\Feuerwehr Stadt Bad Harzburg\EDPLauncher\Version
-Version = 1.0.0.0
+Version = 1.0.0.4
 Description = V1.0.0.0
 AutoCloseApplication = [APPDIR]EDPLauncher.exe|;;AlwaysRestart
