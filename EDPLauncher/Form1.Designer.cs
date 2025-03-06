@@ -133,7 +133,7 @@
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FlatStyle = FlatStyle.Flat;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Disponent 1", "Disponent 2", "Lagekarte", "LdF", "FuehrungAss", "Einsatzleiter", "16-01", "16-02" });
+            comboBox1.Items.AddRange(new object[] { "Funktion manuell wählen", "Disponent 1", "Disponent 2", "Lagekarte", "LdF", "FuehrungAss", "Einsatzleiter", "16-01", "16-02" });
             comboBox1.Location = new Point(395, 143);
             comboBox1.Margin = new Padding(3, 4, 3, 4);
             comboBox1.Name = "comboBox1";

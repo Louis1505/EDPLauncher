@@ -27,7 +27,7 @@ namespace EDPLauncher
             comboBox1.DropDown += new EventHandler(comboBox1_DropDown);
             button_not.BackColor = ColorTranslator.FromHtml("#535353");
             button_not.ForeColor = ColorTranslator.FromHtml("#ffffff");
-            comboBox1.Text = "Lokale Lage";
+            comboBox1.Text = "Funktion manuell wählen";
 
             string fullName = Environment.UserName;
             username = FormatUsername(fullName);
