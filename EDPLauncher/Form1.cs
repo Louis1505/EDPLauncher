@@ -31,6 +31,7 @@ namespace EDPLauncher
 
             string fullName = Environment.UserName;
             username = FormatUsername(fullName);
+            
 
             label_user.Text = "Es wird eingeloggt: " + username;
 
@@ -45,9 +46,10 @@ namespace EDPLauncher
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
 
-
+        string funktion_Manuell = "false";
 
         string ausgabe = @"C:\EDP\ELP\ELP.ini";
+        string admin_ausgabe = @"C:\EDP\editor\editor.ini";
         // string standard = @"C:\EDP\EDPLauncher\Konfiguration\ELP_Backup.ini";
         string edpExe = @"C:\EDP\ELP\ELP.exe";
 
@@ -131,29 +133,27 @@ namespace EDPLauncher
         {
             string system_ini = @"C:\EDP\EDPLauncher\Konfiguration\prod.ini";
             create_ini(system_ini);
+            string admin_ini = @"C:\EDP\EDPLauncher\Konfiguration\prod_admin.ini";
+            create_admin_ini(admin_ini);
         }
         private void button_not_Click(object sender, EventArgs e)
         {
             string system_ini = @"C:\EDP\EDPLauncher\Konfiguration\not.ini";
             create_ini(system_ini);
+            string admin_ini = @"C:\EDP\EDPLauncher\Konfiguration\not_admin.ini";
+            create_admin_ini(admin_ini);
         }
         private void button_test_Click(object sender, EventArgs e)
         {
             string system_ini = @"C:\EDP\EDPLauncher\Konfiguration\test.ini";
             create_ini(system_ini);
+            string admin_ini = @"C:\EDP\EDPLauncher\Konfiguration\test_admin.ini";
+            create_admin_ini(admin_ini);
         }
 
         void create_ini(string system_ini)
         {
-            string anordnung = comboBox1.Text;
-            if (comboBox1.Text == "Lokale Lage")
-            {
-                anordnung = lokalini;
-            }
-            else
-            {
-                anordnung = lageini;
-            }
+            
             try
             {
                 // Überprüfen, ob die Dateien existieren
@@ -172,15 +172,68 @@ namespace EDPLauncher
                     writer.WriteLine("[Autologon]");
                     writer.WriteLine("Benutzer=" + username);
                     writer.WriteLine("Passwort=7b3XshGnPqhCxg89EiCE");
-                    writer.Write(File.ReadAllText(anordnung));
                     writer.WriteLine();
-                    writer.Write(File.ReadAllText(system_ini));
+                    if(funktion_Manuell == "false")
+                    {
+                        writer.Write(File.ReadAllText(system_ini));
+                    }
+                    else
+                    {
+                        writer.WriteLine("Funktion="+comboBox1.Text);
+                        string[] lines = File.ReadAllLines(system_ini);
+                        foreach (string line in lines.Skip(1))
+                        {
+                            writer.WriteLine(line);
+                        }
+                    }
+                    
                 }
 
                 // Erfolgsmeldung ausgeben
                 if (File.Exists(ausgabe))
                 {
                     Console.WriteLine($"Die Dateien wurden erfolgreich zusammengeführt in \"{ausgabe}\".");
+                }
+                else
+                {
+                    Console.WriteLine("Fehler: Die Ausgabedatei konnte nicht erstellt werden.");
+                    return;
+                }
+                //Aufruf EDPStart, Ini auf Standard setzen
+                //Abschluss();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ein Fehler ist aufgetreten: {ex.Message}");
+            }
+        }
+
+        void create_admin_ini(string admin_ini)
+        {
+
+            try
+            {
+                // Überprüfen, ob die Dateien existieren
+
+
+                if (!File.Exists(admin_ini))
+                {
+                    Console.WriteLine($"Fehler: Datei \"{admin_ini}\" nicht gefunden.");
+                    return;
+                }
+
+                // Inhalte zusammenführen
+                Console.WriteLine("Inhalte werden zusammengeführt...");
+                using (StreamWriter writer = new StreamWriter(admin_ausgabe, false, new UTF8Encoding(false)))
+                {
+                    writer.Write(File.ReadAllText(admin_ini));
+                }
+
+                // Erfolgsmeldung ausgeben
+                if (File.Exists(ausgabe))
+                {
+                    Console.WriteLine($"Die Dateien wurden erfolgreich zusammengeführt in \"{admin_ausgabe}\".");
                 }
                 else
                 {
@@ -210,20 +263,9 @@ namespace EDPLauncher
                 return;
             }
 
-            /* STANDARD INI ERZEUGEN nach 25 Sekunden Wartezeit
-            Thread.Sleep(25000);
-            Console.WriteLine("Standard INI wird erstellt...");
-            using (StreamWriter writer = new StreamWriter(ausgabe))
-            {
-                writer.Write(File.ReadAllText(standard));
-            }*/
+            
 
             Environment.Exit(0);
-        }
-
-        private void button_test_Click_1(object sender, EventArgs e)
-        {
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -247,7 +289,7 @@ namespace EDPLauncher
 
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
-
+            funktion_Manuell = "true";
         }
 
         

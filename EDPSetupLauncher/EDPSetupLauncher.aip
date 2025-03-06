@@ -26,10 +26,10 @@
     <ROW Property="AppLogoIcon" Value="applogo.png" MultiBuildValue="DefaultBuild:freundeskreis_rot.png" Type="1" MsiKey="AppLogoIcon"/>
     <ROW Property="AppLogoIconDark" Value="applogodark.png" MultiBuildValue="DefaultBuild:freundeskreis.png" Type="1" MsiKey="AppLogoIconDark"/>
     <ROW Property="Manufacturer" Value="Feuerwehr Stadt Bad Harzburg"/>
-    <ROW Property="ProductCode" Value="1033:{CD3D0A70-8ADB-446F-B12F-749D1E4A23D3} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{711EA767-3D58-4B55-8702-09E84ED0670F} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="EDPLauncher"/>
-    <ROW Property="ProductVersion" Value="2.1.0.0" Options="4"/>
+    <ROW Property="ProductVersion" Value="2.2.0.0" Options="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{58CC8BDD-AA02-45AD-B00E-A084DEC3C7CA}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -108,6 +108,9 @@
     <ROW File="not.ini_10" Component_="not.ini_4" FileName="not.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\LdF\not.ini" SelfReg="false"/>
     <ROW File="prod.ini_10" Component_="not.ini_4" FileName="prod.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\LdF\prod.ini" SelfReg="false"/>
     <ROW File="test.ini_10" Component_="not.ini_4" FileName="test.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\Zusatzdateien\LdF\test.ini" SelfReg="false"/>
+    <ROW File="prod_admin.ini" Component_="lage.ini" FileName="PROD_A~1.INI|prod_admin.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\prod_admin.ini" SelfReg="false"/>
+    <ROW File="not_admin.ini" Component_="lage.ini" FileName="NOT_AD~1.INI|not_admin.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\not_admin.ini" SelfReg="false"/>
+    <ROW File="test_admin.ini" Component_="lage.ini" FileName="TEST_A~1.INI|test_admin.ini" Attributes="0" SourcePath="..\EDPLauncher\Konfiguration\test_admin.ini" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrapperUISequenceComponent">
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="249"/>
