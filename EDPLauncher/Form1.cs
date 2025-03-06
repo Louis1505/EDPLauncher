@@ -31,7 +31,7 @@ namespace EDPLauncher
 
             string fullName = Environment.UserName;
             username = FormatUsername(fullName);
-            
+
 
             label_user.Text = "Es wird eingeloggt: " + username;
 
@@ -153,7 +153,7 @@ namespace EDPLauncher
 
         void create_ini(string system_ini)
         {
-            
+
             try
             {
                 // Überprüfen, ob die Dateien existieren
@@ -173,20 +173,20 @@ namespace EDPLauncher
                     writer.WriteLine("Benutzer=" + username);
                     writer.WriteLine("Passwort=7b3XshGnPqhCxg89EiCE");
                     writer.WriteLine();
-                    if(funktion_Manuell == "false")
+                    if (funktion_Manuell == "false")
                     {
                         writer.Write(File.ReadAllText(system_ini));
                     }
                     else
                     {
-                        writer.WriteLine("Funktion="+comboBox1.Text);
+                        writer.WriteLine("Funktion=" + comboBox1.Text);
                         string[] lines = File.ReadAllLines(system_ini);
                         foreach (string line in lines.Skip(1))
                         {
                             writer.WriteLine(line);
                         }
                     }
-                    
+
                 }
 
                 // Erfolgsmeldung ausgeben
@@ -263,7 +263,7 @@ namespace EDPLauncher
                 return;
             }
 
-            
+
 
             Environment.Exit(0);
         }
@@ -292,6 +292,9 @@ namespace EDPLauncher
             funktion_Manuell = "true";
         }
 
-        
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            funktion_Manuell = "true";
+        }
     }
 }

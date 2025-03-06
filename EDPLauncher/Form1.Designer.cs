@@ -141,6 +141,7 @@
             comboBox1.TabIndex = 9;
             comboBox1.DrawItem += comboBox1_DrawItem;
             comboBox1.DropDown += comboBox1_DropDown;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             comboBox1.SelectedValueChanged += comboBox1_SelectedValueChanged;
             // 
             // Form1
