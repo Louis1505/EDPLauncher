@@ -144,9 +144,7 @@
             comboBox_funktion.Size = new Size(268, 28);
             comboBox_funktion.TabIndex = 9;
             comboBox_funktion.DrawItem += comboBox1_DrawItem;
-            comboBox_funktion.DropDown += comboBox1_DropDown;
-            comboBox_funktion.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
-            comboBox_funktion.SelectedValueChanged += comboBox1_SelectedValueChanged;
+            comboBox_funktion.DropDown += comboBox1_DropDown;           
             // 
             // label1
             // 

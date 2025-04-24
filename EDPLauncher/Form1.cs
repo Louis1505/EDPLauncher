@@ -61,7 +61,6 @@ namespace EDPLauncher
 
         string username;
         string fullName;
-        string funktion_Manuell = "false";
         
 
         private void comboBox1_DrawItem(object sender, DrawItemEventArgs e)
@@ -176,7 +175,7 @@ namespace EDPLauncher
                     writer.WriteLine("[Autologon]");
                     writer.WriteLine("Benutzer=" + username);
                     writer.WriteLine("Passwort=7b3XshGnPqhCxg89EiCE");
-                    if (funktion_Manuell == "false")
+                    if (comboBox_funktion.Text == "Funktion manuell wählen")
                     {
                         writer.Write(File.ReadAllText(system_ini));
                     }
@@ -290,15 +289,7 @@ namespace EDPLauncher
             }
         }
 
-        private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
-        {
-            //funktion_Manuell = "true";
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            funktion_Manuell = "true";
-        }
+       
 
         private void label2_Click(object sender, EventArgs e)
         {
