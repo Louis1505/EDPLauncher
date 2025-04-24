@@ -61,6 +61,7 @@ namespace EDPLauncher
 
         string username;
         string fullName;
+        string funktion_Manuell = "false";
         
 
         private void comboBox1_DrawItem(object sender, DrawItemEventArgs e)
@@ -296,7 +297,7 @@ namespace EDPLauncher
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //funktion_Manuell = "true";
+            funktion_Manuell = "true";
         }
 
         private void label2_Click(object sender, EventArgs e)
