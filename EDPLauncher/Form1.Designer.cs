@@ -36,9 +36,7 @@
             label_user = new Label();
             btn_close = new Button();
             comboBox_funktion = new ComboBox();
-            comboBox_anordnung = new ComboBox();
             label1 = new Label();
-            label2 = new Label();
             groupBox1 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
@@ -150,20 +148,6 @@
             comboBox_funktion.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             comboBox_funktion.SelectedValueChanged += comboBox1_SelectedValueChanged;
             // 
-            // comboBox_anordnung
-            // 
-            comboBox_anordnung.BackColor = SystemColors.InfoText;
-            comboBox_anordnung.DrawMode = DrawMode.OwnerDrawFixed;
-            comboBox_anordnung.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox_anordnung.FlatStyle = FlatStyle.Flat;
-            comboBox_anordnung.FormattingEnabled = true;
-            comboBox_anordnung.Items.AddRange(new object[] { "Anordnung lokale Lage", "Anordnung Flächenlage" });
-            comboBox_anordnung.Location = new Point(284, 57);
-            comboBox_anordnung.Margin = new Padding(3, 4, 3, 4);
-            comboBox_anordnung.Name = "comboBox_anordnung";
-            comboBox_anordnung.Size = new Size(268, 28);
-            comboBox_anordnung.TabIndex = 10;
-            // 
             // label1
             // 
             label1.BackColor = SystemColors.AppWorkspace;
@@ -176,30 +160,15 @@
             label1.Text = "Funktion manuell wählen";
             label1.TextAlign = ContentAlignment.TopCenter;
             // 
-            // label2
-            // 
-            label2.BackColor = SystemColors.AppWorkspace;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(284, 26);
-            label2.Name = "label2";
-            label2.Size = new Size(268, 27);
-            label2.TabIndex = 12;
-            label2.Text = "Fensteranordnung manuell wählen";
-            label2.TextAlign = ContentAlignment.TopCenter;
-            label2.Click += label2_Click;
-            // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(comboBox_anordnung);
             groupBox1.Controls.Add(comboBox_funktion);
             groupBox1.FlatStyle = FlatStyle.Flat;
             groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(37, 174);
+            groupBox1.Location = new Point(172, 174);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(566, 105);
+            groupBox1.Size = new Size(294, 105);
             groupBox1.TabIndex = 13;
             groupBox1.TabStop = false;
             groupBox1.Text = "Manuelle Optionen";
@@ -240,9 +209,7 @@
         private Label label_user;
         private Button btn_close;
         private ComboBox comboBox_funktion;
-        private ComboBox comboBox_anordnung;
         private Label label1;
-        private Label label2;
         private GroupBox groupBox1;
     }
 }
